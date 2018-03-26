@@ -102,7 +102,7 @@ function draw() {
             cameraAlphas[j][i - 6] = A;
         }
     }
-    console.log(cameraAlphas);
+    // console.log(cameraAlphas);
 
     if (keyIsDown(32)) {
         if (random() < pow(fps / 60, 3)) {
@@ -183,7 +183,7 @@ class Block {
 
         if (camA) {
             fill(camA);
-            console.log(camA);
+            // console.log(camA);
         } else {
             fill(0);
         }
