@@ -15,6 +15,7 @@ let prevTime = 0;
 let fpsInterval = 1000;
 
 let rectSize = 28;
+// let rectSize = 22;
 
 // setting the ids for clickable points
 let idForPho;
@@ -35,6 +36,14 @@ let video;
  * @type {cameraAlpha[][]}
  */
 let cameraAlphas;
+let camRows;
+let camCols;
+
+// datas for rectangles
+let rectRows;
+let rectCols;
+// finding the middle numbers for col
+let halfRect;
 
 function setup() {
     createCanvas(windowWidth, windowHeight);
@@ -57,25 +66,33 @@ function setup() {
         )
     );
 
+    console.log(blocks.length);
+
+    // webcam settings
+    camRows = blocks.length;
+    camCols = int(camRows * (4 / 3));
+    video = createCapture(VIDEO);
+    video.size(camCols, camRows);
+    video.hide();
+
+    rectRows = camRows;
+    rectCols = int(rectRows * 0.75);
+
+    halfRect = int((camCols - rectCols) / 2);
+
     // pushing cameraAlphas into 2D arrays
     cameraAlphas = Array.from({
-            length: blocks.length
+            length: rectRows
         }, (v, y) =>
         Array.from({
-                length: 15
+                length: rectCols
             }, (v, x) =>
             0
         )
     );
 
-    console.log(blocks.length);
+    console.log(cameraAlphas, rectRows, rectCols, camCols);
 
-    // webcam settings
-    cols = 27;
-    rows = blocks.length;
-    video = createCapture(VIDEO);
-    video.size(cols, rows);
-    video.hide();
 }
 
 function draw() {
@@ -83,13 +100,13 @@ function draw() {
     video.loadPixels();
 
     // Begin loop for columns
-    for (let i = 6; i < cols - 6; i++) {
+    for (let i = halfRect; i < camCols - halfRect; i++) {
         // Begin loop for rows
-        for (let j = 0; j < rows; j++) {
+        for (let j = 0; j < camRows; j++) {
             // Reversing x to mirror the image
             // In order to mirror the image, the column is reversed with the following formula:
             // mirrored column = width - column - 1
-            var loc = ((cols - i - 1) + j * cols) * 4;
+            var loc = ((camCols - i - 1) + j * camCols) * 4;
 
             // The functions red(), green(), and blue() pull out the three color components from a pixel.
             var r = video.pixels[loc];
@@ -99,7 +116,7 @@ function draw() {
             // A rectangle size is calculated as a function of the pixel's brightness. 
             // A bright pixel is a large rectangle, and a dark pixel is a small one.
             let A = map((r + g + b) / 3, 0, 255, 0, 100);
-            cameraAlphas[j][i - 6] = A;
+            cameraAlphas[j][i - halfRect] = A;
         }
     }
     // console.log(cameraAlphas);
@@ -139,12 +156,11 @@ function draw() {
     blocks.forEach((line, i) =>
         line.forEach((block, j) => {
             block.calcDiff(ripples);
-            if (i < rows) {
+            if (i < camRows) {
                 block.render(cameraAlphas[i][j]);
             } else {
                 block.render();
             }
-            // block.render();
         })
     );
 }
@@ -169,102 +185,6 @@ function mousePressed() {
             block.checkViewed();
         })
     );
-}
-
-class Block {
-    constructor(x, y, id) {
-        this.pos = createVector(x, y);
-        this.id = id;
-        this.viewable = true;
-    }
-
-    // that's where to render the blocks
-    render(camA) {
-
-        if (camA) {
-            fill(camA);
-            // console.log(camA);
-        } else {
-            fill(0);
-        }
-        this.d = dist(this.pos.x, this.pos.y, mouseX, mouseY);
-        this.a = map(this.d, 0, 50, 255, 0);
-        // fill(255, cubicInOut(this.amp, 60, 240, 15));
-        // fill(0);
-
-        //fill some specific blocks
-        if (this.viewable) {
-            if (this.id == 200) {
-                if (this.d > 50) fill(0);
-                else {
-                    fill(254, 147, 140, this.a);
-                    console.log(this.a);
-                }
-            }
-        }
-        // rect(this.pos.x + this.diff.x, this.pos.y + this.diff.y, (block_core + this.amp * block_scale) * 5, block_core + this.amp * block_scale * 0.5);
-        rect(this.pos.x + this.diff.x, this.pos.y + this.diff.y, (block_core + this.amp * block_scale) * rectSize, (block_core + this.amp * block_scale) * rectSize);
-    }
-
-    checkViewed() {
-        if (this.d < (block_core + this.amp * block_scale) * (rectSize - 5))
-            this.viewable = false;
-    }
-    /**
-     * @param {Ripple[]} ripples
-     */
-    calcDiff(ripples) {
-        this.diff = createVector(0, 0);
-        this.amp = 0;
-
-        ripples.forEach((ripple, i) => {
-            if (!ripple.dists[this.id]) {
-                ripple.dists[this.id] = dist(this.pos.x, this.pos.y, ripple.pos.x, ripple.pos.y);
-            };
-            let distance = ripple.dists[this.id] - ripple.currRadius;
-            if (distance < 0 && distance > -block_move_range * 2) {
-                if (!ripple.angles[this.id]) {
-                    ripple.angles[this.id] = p5.Vector.sub(this.pos, ripple.pos).heading();
-                };
-                const angle = ripple.angles[this.id];
-                const localAmp = cubicInOut(-abs(block_move_range + distance) + block_move_range, 0, block_move_distance, block_move_range) * ripple.scale;
-                this.amp += localAmp;
-                const movement = p5.Vector.fromAngle(angle).mult(localAmp);
-                this.diff.add(movement);
-            }
-        });
-    }
-
-}
-
-class Ripple {
-    constructor(x, y, scale) {
-        this.pos = createVector(x, y);
-        this.initTime = millis();
-        this.currRadius = 0;
-        this.endRadius = max(dist(this.pos.x, this.pos.y, 0, 0), dist(this.pos.x, this.pos.y, 0, height), dist(this.pos.x, this.pos.y, width, 0), dist(this.pos.x, this.pos.y, height, width)) + block_move_range;
-        this.scale = scale;
-
-        this.dists = [];
-        this.angles = [];
-    }
-
-    checkKill() {
-        if (this.currRadius > this.endRadius) {
-            ripples.splice(ripples.indexOf(this), 1);
-        }
-    }
-
-    updateRadius() {
-        this.currRadius = (millis() - this.initTime) * ripple_speed;
-        //this.currRadius = 200;
-    }
-
-    // draw() {
-    //     stroke(255, cubicInOut(this.scale, 30, 120, 1));
-    //     noFill();
-    //     ellipse(this.pos.x, this.pos.y, this.currRadius * 2, this.currRadius * 2);
-    // }
 }
 
 function cubicInOut(t, b, c, d) {
