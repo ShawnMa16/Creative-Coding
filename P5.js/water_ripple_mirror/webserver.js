@@ -4,6 +4,7 @@ var app = express();
 
 app.use(express.static('public'));
 app.use(express.static('scripts'));
+app.use(express.static('dependencies'));
 
 app.set('view engine', 'ejs');
 
