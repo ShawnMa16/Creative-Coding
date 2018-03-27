@@ -3,8 +3,8 @@ var express = require('express');
 var app = express();
 
 app.use(express.static('public'));
-app.use(express.static('scripts'));
-app.use(express.static('libs'));
+app.use(express.static('js/scripts'));
+app.use(express.static('js/libs'));
 
 app.set('view engine', 'ejs');
 

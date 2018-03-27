@@ -2,6 +2,8 @@
 <html>
 
 <head>
+  <title>Artistic Face</title>
+
   <meta name="viewport" width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0>
   <link rel="stylesheet" type="text/css" href="css/style.css" />
   <style>
@@ -10,14 +12,18 @@
       margin: 0;
     }
   </style>
+
+  <script async src="js/libs/brf_asmjs/BRFv4_JS_TK190218_v4.0.5_trial.js"></script>
   <script src="js/libs/p5js/p5.min.js"></script>
   <script src="js/libs/p5js/p5.dom.min.js"></script>
   <script src="js/libs/p5js/p5.sound.min.js"></script>
-  <script src="js/my_scripts/face.js"></script>
 
 </head>
 
 <body>
+  <video id="_webcam" style="display: none;" playsinline></video>
+  <canvas id="_imageData"></canvas>
+  <script src="js/my_scripts/face.js"></script>
   <script src="sketch.js"></script>
 
 </body>
