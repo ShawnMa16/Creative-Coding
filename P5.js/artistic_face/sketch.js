@@ -9,7 +9,7 @@ let right_eye;
 let mouth_index = [12];
 let mouth;
 
-let nose_index = [9];
+let nose_index = [3];
 let nose;
 
 let left_eyebrow_index = [4];
@@ -27,7 +27,7 @@ function setup() {
   left_eye = new Feature(createArea(6, 100, 49, 31, 30, 0.75));
   right_eye = new Feature(createArea(6, 100, 49, 31, 30, 0.75));
   mouth = new Feature(createArea(12, 150, 49, 50, 60, 0.7));
-  nose = new Feature(createArea(9, 50, 49, 31, 30, 0.9));
+  nose = new Feature(createArea(3, 50, 49, 31, 40, 1.1));
   left_eyebrow = new Feature(createArea(4, 20, 20, 20, 50, 0.6));
   right_eyebrow = new Feature(createArea(4, 20, 20, 20, 50, 0.6));
 }
@@ -67,8 +67,8 @@ function faceDect(face) {
       }
 
       // pushing data for nose
-      if (26 < i && i < 36) {
-        nose_index[i - 27] = face.points[i];
+      if (27 < i && i < 31) {
+        nose_index[i - 28] = face.points[i];
       }
 
       // pushing data for eyebrows
