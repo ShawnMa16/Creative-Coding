@@ -23,5 +23,17 @@ function drawFace(face) {
       ellipse(point.x, point.y, 5, 5);
       console.log(point);
     });
+
+    // pushing data for left eye
+    for (let i = 0; i < face.points.length; i++) {
+      if (35 < i && i < 42) {
+        left_eye_index[i - 36] = face.points[i];
+        // console.log(face.points[i]);
+      }
+    }
+
+    // console.log(left_eye_index);
+    left_eye.update(left_eye_index);
+    left_eye.display();
   }
 }
