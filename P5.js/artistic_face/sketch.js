@@ -6,14 +6,18 @@ let left_eye
 let right_eye_index = [6];
 let right_eye;
 
+let mouth_index = [12];
+let mouth;
+
 function setup() {
   // put setup code here
 
   createCanvas(540, 720);
   rectMode(CENTER);
 
-  left_eye = new Eye(createArea(6, 100, 49, 31));
-  right_eye = new Eye(createArea(6, 100, 49, 31));
+  left_eye = new Feature(createArea(6, 100, 49, 31));
+  right_eye = new Feature(createArea(6, 100, 49, 31));
+  mouth = new Feature(createArea(12, 100, 49, 31));
 
 }
 
@@ -45,6 +49,10 @@ function faceDect(face) {
         right_eye_index[i - 42] = face.points[i];
         // console.log(face.points[i]);
       }
+      
+      if(47 < i && i < 60) {
+        mouth_index[i - 48] = face.points[i];
+      }
     }
 
     // console.log(left_eye_index);
@@ -53,6 +61,9 @@ function faceDect(face) {
 
     right_eye.update(right_eye_index);
     right_eye.display();
+
+    mouth.update(mouth_index);
+    mouth.display();
   }
 }
 
