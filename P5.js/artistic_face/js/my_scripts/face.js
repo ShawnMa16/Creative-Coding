@@ -6,9 +6,9 @@ var brfv4 = null;
 
 var constraints = {
   video: {
-    width: 640,
-    height: 480,
-    frameRate: 30
+    width: 540,
+    height: 720,
+    frameRate: 60
   }
 }
 
