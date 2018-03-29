@@ -21,19 +21,24 @@ let right_eyebrow;
 function setup() {
   // put setup code here
 
-  createCanvas(540, 720);
+  let cnv = createCanvas(540, 720);
   rectMode(CENTER);
+
+  let x_pos = (windowWidth - width) / 2;
+  let y_pos = (windowHeight - height) / 2;
+  cnv.position(x_pos, y_pos);
 
   left_eye = new Feature(createArea(6, 100, 49, 31, 30, 0.75));
   right_eye = new Feature(createArea(6, 100, 49, 31, 30, 0.75));
-  mouth = new Feature(createArea(12, 150, 49, 50, 60, 0.7));
-  nose = new Feature(createArea(3, 50, 49, 31, 40, 1.1));
-  left_eyebrow = new Feature(createArea(4, 20, 20, 20, 30, 0.6));
-  right_eyebrow = new Feature(createArea(4, 20, 20, 20, 30, 0.6));
+  mouth = new Feature(createArea(12, 150, 49, 50, 60, 0.5));
+  nose = new Feature(createArea(3, 50, 49, 31, 25, 1.3));
+  left_eyebrow = new Feature(createArea(4, 20, 20, 20, 30, 0.5));
+  right_eyebrow = new Feature(createArea(4, 20, 20, 20, 30, 0.5));
 }
 
 function draw() {
   // put drawing code here
+  
   background(255);
   for (let i = 0; i < faces.length; i++) {
     faceDect(faces[i]);

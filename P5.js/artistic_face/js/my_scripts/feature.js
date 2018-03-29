@@ -5,6 +5,8 @@ class Feature {
             this.points.push(area[i]);
         }
         // console.log(this.points);
+
+        this. scale = 1;
     }
 
     update(faceFeature) {
@@ -12,7 +14,12 @@ class Feature {
         for (let i = 0; i < faceFeature.length; i++) {
             this.points[i].x = faceFeature[i].x;
             this.points[i].y = faceFeature[i].y;
+
+            this.points[i].x *= this.scale;
+            this.points[i].y *= this.scale;
         }
+
+ 
         // console.log(this.points);
     }
 
