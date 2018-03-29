@@ -28,8 +28,8 @@ function setup() {
   right_eye = new Feature(createArea(6, 100, 49, 31, 30, 0.75));
   mouth = new Feature(createArea(12, 150, 49, 50, 60, 0.7));
   nose = new Feature(createArea(3, 50, 49, 31, 40, 1.1));
-  left_eyebrow = new Feature(createArea(4, 20, 20, 20, 50, 0.6));
-  right_eyebrow = new Feature(createArea(4, 20, 20, 20, 50, 0.6));
+  left_eyebrow = new Feature(createArea(4, 20, 20, 20, 30, 0.6));
+  right_eyebrow = new Feature(createArea(4, 20, 20, 20, 30, 0.6));
 }
 
 function draw() {
