@@ -68,7 +68,7 @@ function setup() {
 
     console.log(blocks.length);
 
-    // webcam settings
+    //--------------------------------- webcam settings start --------------------------------------------
     camRows = blocks.length;
     camCols = int(camRows * (4 / 3));
     video = createCapture(VIDEO);
@@ -92,6 +92,7 @@ function setup() {
     );
 
     console.log(cameraAlphas, rectRows, rectCols, camCols);
+    //------------------------------------- webcam settings end --------------------------------------------
 
 }
 

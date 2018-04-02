@@ -6,9 +6,11 @@ class Block {
     }
 
     // that's where to render the blocks
+    // passing the alpha data from camera for blocks to render
     render(camA) {
 
         if (camA) {
+            // fill the blocks with camera alpha data
             fill(camA);
             // console.log(camA);
         } else {

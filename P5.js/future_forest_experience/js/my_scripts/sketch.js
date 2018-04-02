@@ -446,7 +446,7 @@ function drawWater() {
     }
     pg.endShape();
 
-    console.log(tempAcc.y);
+    // console.log(tempAcc.y);
     // incr1 += .0004;
     var ySpeed = map(abs(tempAcc.y), 0, 1.0, 0.0004, 0.003);
 
