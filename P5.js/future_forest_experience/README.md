@@ -1,1 +1,1 @@
-Please run the sketch in SimpleHTTPServer or other serving ways
+Please run the sketch in node.js
