@@ -7,9 +7,9 @@ function preload() {
   //waterSound = loadSound("/sound/water.mp3");
 
   //load sound file
-  waterSound = loadSound("/sound/water.mp3");
-  birdSound = loadSound("/sound/bird.mp3");
-  treeSound = loadSound("/sound/tree.mp3");
+  waterSound = loadSound("water.mp3");
+  birdSound = loadSound("bird.mp3");
+  treeSound = loadSound("tree.mp3");
 }
 
 //kinect
