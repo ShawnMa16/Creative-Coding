@@ -5,12 +5,12 @@ let credentials = {
   key: fs.readFileSync('/etc/letsencrypt/live/xiaoma.space/privkey.pem'),
   cert: fs.readFileSync('/etc/letsencrypt/live/xiaoma.space/cert.pem')
 };
-let express = require('express');
 
+let express = require('express');
 let app = express();
 
 app.use(express.static('public'));
-app.use(express.static('js/scripts'));
+app.use(express.static('js/my_scripts'));
 app.use(express.static('js/libs'));
 
 app.get('/water_ripple', function (req, res) {

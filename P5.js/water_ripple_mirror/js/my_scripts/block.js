@@ -36,8 +36,10 @@ class Block {
     }
 
     checkViewed() {
-        if (this.d < (block_core + this.amp * block_scale) * (rectSize - 5))
+        if (this.d < (block_core + this.amp * block_scale) * (rectSize - 5)) {
             this.viewable = false;
+        }
+            
     }
     /**
      * @param {Ripple[]} ripples
