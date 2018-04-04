@@ -91,7 +91,7 @@ function setup() {
         )
     );
 
-    console.log(cameraAlphas, rectRows, rectCols, camCols);
+    // console.log(cameraAlphas, rectRows, rectCols, camCols);
     //------------------------------------- webcam settings end --------------------------------------------
 
 }

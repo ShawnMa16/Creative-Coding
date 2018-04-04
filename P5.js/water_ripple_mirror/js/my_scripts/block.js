@@ -3,6 +3,7 @@ class Block {
         this.pos = createVector(x, y);
         this.id = id;
         this.viewable = true;
+        this.url;
     }
 
     // that's where to render the blocks
@@ -21,26 +22,35 @@ class Block {
         // fill(255, cubicInOut(this.amp, 60, 240, 15));
         // fill(0);
 
-        //fill some specific blocks
+        // fill some specific blocks
+        // check if the block was clicked and open an URL for it
         if (this.viewable) {
             if (this.id == 200) {
-                if (this.d > 50) fill(0);
+                if (this.d > 30) fill(0);
                 else {
                     fill(254, 147, 140, this.a);
-                    console.log(this.a);
                 }
             }
         }
+
         // rect(this.pos.x + this.diff.x, this.pos.y + this.diff.y, (block_core + this.amp * block_scale) * 5, block_core + this.amp * block_scale * 0.5);
         rect(this.pos.x + this.diff.x, this.pos.y + this.diff.y, (block_core + this.amp * block_scale) * rectSize, (block_core + this.amp * block_scale) * rectSize);
     }
 
+    // ------------------------- Jump to different pages start -----------------------
     checkViewed() {
         if (this.d < (block_core + this.amp * block_scale) * (rectSize - 5)) {
             this.viewable = false;
+            if (this.id == 200) {
+                console.log("200 was clicked!");
+                setTimeout(function () {
+                    window.open("http://www.jixuansun.space", "_self")
+                }, 1200);
+            }
         }
-            
     }
+    // ------------------------- Jump to different pages end -------------------------
+
     /**
      * @param {Ripple[]} ripples
      */

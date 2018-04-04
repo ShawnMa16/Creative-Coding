@@ -30,6 +30,6 @@ app.get('/water_ripple', function (req, res) {
 let httpsServer = https.createServer(credentials, app);
 
 // Default HTTPS Port
-httpsServer.listen(80);
+httpsServer.listen(443);
 
 // module.exports = app;
