@@ -41,10 +41,11 @@ class Block {
     checkViewed() {
         if (this.d < (block_core + this.amp * block_scale) * (rectSize - 5)) {
             this.viewable = false;
+            // testing for the forest
             if (this.id == 200) {
                 console.log("200 was clicked!");
                 setTimeout(function () {
-                    window.open("https://xiaoma.space/tree.html", "_self")
+                    window.open("https://xiaoma.space/about", "_self")
                 }, 1200);
             }
         }

@@ -13,20 +13,15 @@ app.use(express.static('public'));
 app.use(express.static('js/my_scripts'));
 app.use(express.static('js/libs'));
 app.use(express.static('sound'));
+app.use(express.static('assests'));
 
-app.get('/tree', function (req, res) {
-
-  /* Alternatively you could loop through the records with a "for"
-  	for (let i = 0; i < saved.length; i++) {
-	  	console.log(saved[i]);
-	}
-  */
-   res.sendFile('tree.html');
+app.get('/forest', function (req, res) {
+  res.sendfile(__dirname + '/public/tree.html');
 });
 
-// app.listen(80, function () {
-//   console.log('Example app listening on port 80!')
-// });
+app.get('/about', function (req, res) {
+  res.sendfile(__dirname + '/public/about.html');
+});
 
 let httpsServer = https.createServer(credentials, app);
 
