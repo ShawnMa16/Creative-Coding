@@ -111,7 +111,7 @@ function checkRollOver(d, size, block_id, block_pos) {
             fill(255);
             text("about", block_pos.x, block_pos.y - size);
             pop();
-            fill(255, this.a);
+            fill(200, this.a);
         }
     }
     if (block_id == 266) {
@@ -129,7 +129,7 @@ function checkRollOver(d, size, block_id, block_pos) {
             fill(255);
             text("Future Forest Exeprience", block_pos.x, block_pos.y - size);
             pop();
-            fill(255, this.a);
+            fill(200, this.a);
         }
     }
 
@@ -148,7 +148,7 @@ function checkRollOver(d, size, block_id, block_pos) {
             fill(255);
             text("Artists Face", block_pos.x, block_pos.y - size);
             pop();
-            fill(255, this.a);
+            fill(200, this.a);
         }
     }
 }
