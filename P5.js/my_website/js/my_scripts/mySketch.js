@@ -4,6 +4,7 @@ const block_move_distance = 5;
 const block_move_range = 70;
 const block_scale = 0.01;
 const ripple_speed = 0.30;
+// let ripple_speed = 0.30;
 
 let show_ripples = false;
 let show_info = false;
@@ -100,6 +101,10 @@ function draw() {
 
     video.loadPixels();
 
+    background(100, 20);
+
+    rectMode(CENTER);
+
     // Begin loop for columns
     for (let i = halfRect; i < camCols - halfRect; i++) {
         // Begin loop for rows
@@ -144,10 +149,6 @@ function draw() {
 
     mouse_speed = dist(mouseX, mouseY, pmouseX, pmouseY);
 
-    background(100, 20);
-
-    rectMode(CENTER);
-
     ripples.forEach((ripple, i) => {
         ripple.updateRadius();
         ripple.checkKill();
@@ -179,11 +180,13 @@ function mouseDragged() {
 }
 
 function mousePressed() {
+    // ripple_speed = 0.8;
     ripples.push(new Ripple(mouseX, mouseY, 0.8));
 
     blocks.forEach((line, i) =>
         line.forEach((block, j) => {
-            block.checkViewed();
+            block.checkClicked();
+            // console.log(clicked);
         })
     );
 }

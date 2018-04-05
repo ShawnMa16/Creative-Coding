@@ -1,0 +1,31 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: black;
+}
+body {
+  /* background-color: #888888; */
+  margin: 0;
+  display: flex;
+
+  /* This centers our sketch horizontally. */
+  justify-content: center;
+
+  /* This centers our sketch vertically. */
+  align-items: center;
+}
+
+#main {
+  margin: auto;
+  width: 960px;
+  border: 1px solid #eeeeee;
+  padding: 0px;
+}
+
+#_imageData {
+  opacity: 0;
+  /* zoom: 20%; */
+  position: absolute;
+  top: 0;
+  /* right: 0; */
+}

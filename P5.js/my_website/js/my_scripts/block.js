@@ -2,7 +2,7 @@ class Block {
     constructor(x, y, id) {
         this.pos = createVector(x, y);
         this.id = id;
-        this.viewable = true;
+        this.clicked = false;
         this.url;
     }
 
@@ -17,32 +17,25 @@ class Block {
         } else {
             fill(0);
         }
-        this.d = dist(this.pos.x, this.pos.y, mouseX, mouseY);
-        this.a = map(this.d, 0, 50, 255, 0);
+        this.d_blockToMouse = dist(this.pos.x, this.pos.y, mouseX, mouseY);
+        this.a = map(this.d_blockToMouse, 0, 50, 255, 0);
+        this.size = (block_core + this.amp * block_scale) * (rectSize - 5);
         // fill(255, cubicInOut(this.amp, 60, 240, 15));
         // fill(0);
 
-        // fill some specific blocks
-        // check if the block was clicked and open an URL for it
-        if (this.viewable) {
-            if (this.id == 200) {
-                if (this.d > 30) fill(0);
-                else {
-                    fill(254, 147, 140, this.a);
-                }
-            }
-        }
+        checkRollOver(this.d_blockToMouse, this.size, this.id);
 
         // rect(this.pos.x + this.diff.x, this.pos.y + this.diff.y, (block_core + this.amp * block_scale) * 5, block_core + this.amp * block_scale * 0.5);
         rect(this.pos.x + this.diff.x, this.pos.y + this.diff.y, (block_core + this.amp * block_scale) * rectSize, (block_core + this.amp * block_scale) * rectSize);
     }
 
     // ------------------------- Jump to different pages start -----------------------
-    checkViewed() {
-        if (this.d < (block_core + this.amp * block_scale) * (rectSize - 5)) {
-            this.viewable = false;
+    checkClicked() {
+        if (this.d_blockToMouse < (block_core + this.amp * block_scale) * (rectSize - 5)) {
             // testing for the forest
             if (this.id == 200) {
+                // cursor(HAND);
+                this.clicked = true;
                 console.log("200 was clicked!");
                 setTimeout(function () {
                     window.open("https://xiaoma.space/about", "_self")
@@ -51,7 +44,6 @@ class Block {
         }
     }
     // ------------------------- Jump to different pages end -------------------------
-
     /**
      * @param {Ripple[]} ripples
      */
@@ -77,4 +69,18 @@ class Block {
         });
     }
 
+}
+
+// check if the blocks are rollover
+function checkRollOver(d, size, block_id) {
+
+    if (block_id == 200) {
+        if (d > size) {
+            cursor(ARROW);
+            fill(255);
+        } else {
+            cursor(HAND);
+            fill(254, 147, 140, this.a);
+        }
+    }
 }
