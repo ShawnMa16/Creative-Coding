@@ -33,7 +33,7 @@ class Block {
     checkClicked() {
         if (this.d_blockToMouse < this.size) {
             // testing for the about
-            if (this.id == 200) {
+            if (this.id == aboutID) {
                 this.clicked = true;
                 console.log("200 was clicked!");
                 setTimeout(function () {
@@ -44,7 +44,7 @@ class Block {
 
         if (this.d_blockToMouse < this.size) {
             // testing for the forest
-            if (this.id == 266) {
+            if (this.id == forestID) {
                 this.clicked = true;
                 console.log("266 was clicked!");
                 setTimeout(function () {
@@ -55,7 +55,7 @@ class Block {
 
         if (this.d_blockToMouse < this.size) {
             // testing for the face
-            if (this.id == 332) {
+            if (this.id == faceID) {
                 this.clicked = true;
                 console.log("332 was clicked!");
                 setTimeout(function () {
@@ -95,7 +95,7 @@ class Block {
 // check if the blocks are rollover
 function checkRollOver(d, size, block_id, block_pos) {
 
-    if (block_id == 200) {
+    if (block_id == aboutID) {
         if (d > size) {
             let grey = 150;
             cursor(ARROW);
@@ -114,7 +114,7 @@ function checkRollOver(d, size, block_id, block_pos) {
             fill(200, this.a);
         }
     }
-    if (block_id == 266) {
+    if (block_id == forestID) {
         if (d > size) {
             let grey = 150;
             // cursor(ARROW);
@@ -133,7 +133,7 @@ function checkRollOver(d, size, block_id, block_pos) {
         }
     }
 
-    if (block_id == 332) {
+    if (block_id == faceID) {
         if (d > size) {
             let grey = 150;
             // cursor(ARROW);

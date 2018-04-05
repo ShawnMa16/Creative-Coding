@@ -46,6 +46,11 @@ let rectCols;
 // finding the middle numbers for col
 let halfRect;
 
+// IDs for about page -> aboutID is also the initial ID for all other pages
+let aboutID;
+let forestID;
+let faceID;
+
 function setup() {
     createCanvas(windowWidth, windowHeight);
     noStroke();
@@ -79,6 +84,7 @@ function setup() {
     rectRows = camRows;
     rectCols = int(rectRows * 0.75);
 
+    // calculate the half pixles between the left blocks and the camera
     halfRect = int((camCols - rectCols) / 2);
 
     // pushing cameraAlphas into 2D arrays
@@ -92,9 +98,19 @@ function setup() {
         )
     );
 
+    console.log(cameraAlphas[0].length, " ", rectCols);
+    console.log(blocks[0].length);
+    console.log(blocks[0].length - rectCols);
+
     // console.log(cameraAlphas, rectRows, rectCols, camCols);
     //------------------------------------- webcam settings end --------------------------------------------
 
+    // initial all the page IDs
+    aboutID = rectCols + int((blocks[0].length - rectCols) * 2 / 3) + (int(blocks.length / 3) * blocks[0].length);
+    forestID = aboutID + blocks[0].length * 2 - 2;
+    faceID = aboutID + blocks[0].length * 4 - 4;
+
+    console.log(aboutID);
 }
 
 function draw() {
@@ -106,6 +122,7 @@ function draw() {
     rectMode(CENTER);
 
     // Begin loop for columns
+    // --------------------- pushing colors from camera into blocks start ---------------------
     for (let i = halfRect; i < camCols - halfRect; i++) {
         // Begin loop for rows
         for (let j = 0; j < camRows; j++) {
@@ -125,6 +142,8 @@ function draw() {
             cameraAlphas[j][i - halfRect] = A;
         }
     }
+    // --------------------- pushing colors from camera into blocks end ---------------------
+
     // console.log(cameraAlphas);
 
     if (keyIsDown(32)) {
