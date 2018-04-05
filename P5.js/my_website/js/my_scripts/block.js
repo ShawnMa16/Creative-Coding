@@ -31,14 +31,35 @@ class Block {
 
     // ------------------------- Jump to different pages start -----------------------
     checkClicked() {
-        if (this.d_blockToMouse < (block_core + this.amp * block_scale) * (rectSize - 5)) {
-            // testing for the forest
+        if (this.d_blockToMouse < this.size) {
+            // testing for the about
             if (this.id == 200) {
-                // cursor(HAND);
                 this.clicked = true;
                 console.log("200 was clicked!");
                 setTimeout(function () {
                     window.open("https://xiaoma.space/about", "_self")
+                }, 1200);
+            }
+        }
+
+        if (this.d_blockToMouse < this.size) {
+            // testing for the forest
+            if (this.id == 266) {
+                this.clicked = true;
+                console.log("266 was clicked!");
+                setTimeout(function () {
+                    window.open("https://xiaoma.space/forest", "_self")
+                }, 1200);
+            }
+        }
+
+        if (this.d_blockToMouse < this.size) {
+            // testing for the face
+            if (this.id == 332) {
+                this.clicked = true;
+                console.log("332 was clicked!");
+                setTimeout(function () {
+                    window.open("https://xiaoma.space/face", "_self")
                 }, 1200);
             }
         }
@@ -74,22 +95,58 @@ class Block {
 // check if the blocks are rollover
 function checkRollOver(d, size, block_id, block_pos) {
 
-    // let grey = 150;
-
     if (block_id == 200) {
         if (d > size) {
             let grey = 150;
             cursor(ARROW);
             fill(grey);
             grey--;
+
         } else {
             cursor(HAND);
             push();
             textAlign(CENTER);
-            textFont("Georgia");
-            textSize(20);
+            textFont("Existence");
+            textSize(25);
             fill(255);
             text("about", block_pos.x, block_pos.y - size);
+            pop();
+            fill(255, this.a);
+        }
+    }
+    if (block_id == 266) {
+        if (d > size) {
+            let grey = 150;
+            // cursor(ARROW);
+            fill(grey);
+            grey--;
+        } else {
+            cursor(HAND);
+            push();
+            textAlign(CENTER);
+            textFont("Existence");
+            textSize(25);
+            fill(255);
+            text("Future Forest Exeprience", block_pos.x, block_pos.y - size);
+            pop();
+            fill(255, this.a);
+        }
+    }
+
+    if (block_id == 332) {
+        if (d > size) {
+            let grey = 150;
+            // cursor(ARROW);
+            fill(grey);
+            grey--;
+        } else {
+            cursor(HAND);
+            push();
+            textAlign(CENTER);
+            textFont("Existence");
+            textSize(25);
+            fill(255);
+            text("Artists Face", block_pos.x, block_pos.y - size);
             pop();
             fill(255, this.a);
         }

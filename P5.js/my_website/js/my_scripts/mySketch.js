@@ -163,6 +163,7 @@ function draw() {
             } else {
                 block.render();
             }
+            // block.checkRollOver();
         })
     );
 }
