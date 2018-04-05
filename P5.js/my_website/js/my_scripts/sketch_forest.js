@@ -83,7 +83,7 @@ function setup() {
 
   wavingCount = 0;
 
-  createCanvas(900, 900);
+  createCanvas(windowHeight, windowHeight);
 
   //for the projection mapping
   // Maptastic("defaultCanvas0");
@@ -108,12 +108,12 @@ function setup() {
 
   //background for the water
   // pg = createGraphics(900, 260);
-  pg = createGraphics(windowWidth, 260);
+  pg = createGraphics(windowWidth, (260 / 900) * windowHeight);
   pg.pixelDensity(1);
   pg.background(0);
 
   //start point for the tree
-  startPoint = createVector(width / 3, 650);
+  startPoint = createVector(width / 3, (650 / 900) * windowHeight);
   direction = createVector(0, -height);
 
   myTree = new Tree(startPoint, direction);
@@ -160,8 +160,8 @@ function draw() {
   // if (mapX > 0 && mapX < width && mapZ < height && mapZ > 710) {
 
   // if (mapX > 0 && mapX < 940 && mapZ < 1000 && mapZ > 700) {
-    // filterFreq = map(mapX, 70, 935, 20, 10000);
-    if (mouseX > 0 && mouseX < width && mouseY < height && mouseY > 610) {
+  // filterFreq = map(mapX, 70, 935, 20, 10000);
+  if (mouseX > 0 && mouseX < width && mouseY < height && mouseY > (610 / 900) * windowHeight) {
     filterFreq = map(mouseX, 0, width, 20, 10000);
     // Map mouseY to resonance (volume boost) at the cutoff frequency
     // filterRes = map(mouseY, 610, height, 0, 20);
@@ -204,7 +204,7 @@ function draw() {
   //---------------------- drawing out the tree -------------------------------
   // if (mouseY > 350 && mouseY < 550 && mouseX < 500 && mouseX > 150) {
   if (dist(mouseX, mouseY, startX, startY) < 200) {
-  // if (dist(mapX, mapZ, startX, startY) < 200) {
+    // if (dist(mapX, mapZ, startX, startY) < 200) {
 
     handRO = true;
 
@@ -377,12 +377,15 @@ function mouseMoved() {
 //----------------------- drawing out the water -------------------------------
 function drawWater() {
 
+
   push();
   fill(0);
   stroke(255);
   strokeWeight(2);
   // bezier(0, 660, 400, 660, 600, 600, 900, 660);
-  bezier(0, 660, 400, 660, 600, 600, 900, 660);
+  bezier(0, 660 / 900 * windowHeight, 400 / 900 * windowHeight,
+    660 / 900 * windowHeight, 600 / 900 * windowHeight, 600 / 900 * windowHeight,
+    900 / 900 * windowHeight, 660 / 900 * windowHeight);
   pop();
 
   //transparency 5;
@@ -428,7 +431,7 @@ function drawWater() {
       pg.stroke(255, a);
 
       // if (mapZ > 630 && mapZ < 945) {
-        if (mouseY > 610 && mouseY < 900) {
+      if (mouseY > 610 / 900 * windowHeight && mouseY < windowHeight) {
 
         if (x == 100) {
           pg.curveVertex(x - 100,
@@ -451,7 +454,7 @@ function drawWater() {
     var ySpeed = map(abs(tempAcc.y), 0, 1.0, 0.0004, 0.003);
 
     // if (abs(tempAcc.y) > 0.8 && mouseY > 650 && mouseY < 945) {
-      if (abs(tempAcc.y) > 0.3 && mouseY > 550 && mouseY < 900) {
+    if (abs(tempAcc.y) > 0.3 && mouseY > 550 && mouseY < 900) {
       incr1 += ySpeed;
     } else {
       incr1 += .0004;
@@ -471,7 +474,7 @@ function drawWater() {
     a -= 10;
   }
 
-  image(pg, 0, height - 240);
+  image(pg, 0, height - (240 / 900 * windowHeight));
 }
 
 window.onload = () => {
