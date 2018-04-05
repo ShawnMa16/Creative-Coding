@@ -23,7 +23,7 @@ class Block {
         // fill(255, cubicInOut(this.amp, 60, 240, 15));
         // fill(0);
 
-        checkRollOver(this.d_blockToMouse, this.size, this.id);
+        checkRollOver(this.d_blockToMouse, this.size, this.id, this.pos);
 
         // rect(this.pos.x + this.diff.x, this.pos.y + this.diff.y, (block_core + this.amp * block_scale) * 5, block_core + this.amp * block_scale * 0.5);
         rect(this.pos.x + this.diff.x, this.pos.y + this.diff.y, (block_core + this.amp * block_scale) * rectSize, (block_core + this.amp * block_scale) * rectSize);
@@ -72,15 +72,26 @@ class Block {
 }
 
 // check if the blocks are rollover
-function checkRollOver(d, size, block_id) {
+function checkRollOver(d, size, block_id, block_pos) {
+
+    // let grey = 150;
 
     if (block_id == 200) {
         if (d > size) {
+            let grey = 150;
             cursor(ARROW);
-            fill(255);
+            fill(grey);
+            grey--;
         } else {
             cursor(HAND);
-            fill(254, 147, 140, this.a);
+            push();
+            textAlign(CENTER);
+            textFont("Georgia");
+            textSize(20);
+            fill(255);
+            text("about", block_pos.x, block_pos.y - size);
+            pop();
+            fill(255, this.a);
         }
     }
 }
