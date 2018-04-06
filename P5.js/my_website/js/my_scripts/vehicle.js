@@ -41,7 +41,7 @@ Vehicle.prototype.show = function () {
   // stroke(0);
   // strokeWeight(0);
   fill(0);
-  rect(this.pos.x, this.pos.y, 0.2, 0.2);
+  rect(this.pos.x, this.pos.y, 0.5, 0.5);
 }
 
 

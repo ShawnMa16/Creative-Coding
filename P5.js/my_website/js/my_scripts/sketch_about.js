@@ -16,18 +16,20 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
 
   img.loadPixels();
-  for (var x = 0; x < img.width; x += 1) {
-    for (var y = 0; y < img.height; y += 1) {
+  for (var x = 0; x < img.width; x += 2) {
+    for (var y = 0; y < img.height; y += 2) {
       var index = x + y * img.width;
       var c = img.pixels[index * 4];
       var b = brightness([c]);
 
       if (b > 1) {
-        // _x = (x + windowWidth / 8);
-        // _y = (y + windowHeight / 8);
-        _x = (x / img.width) * windowWidth;
-        _y = (y / img.height) * windowHeight;
-        points.push(createVector(_x, _y));
+        _x = (x + windowWidth / 16);
+        // _y = (y + windowHeight / 16);
+        // _x = (x / img.width) * windowWidth;
+        // _y = (y / img.height) * windowHeight;
+        // points.push(createVector(_x, _y));
+        points.push(createVector(_x, y));
+
       }
     }
   }
