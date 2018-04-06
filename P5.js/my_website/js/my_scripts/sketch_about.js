@@ -20,7 +20,6 @@ function preload() {
   img = loadImage("about_page.png");
 }
 
-
 function setup() {
   createCanvas(windowWidth, windowHeight);
 
@@ -29,12 +28,9 @@ function setup() {
   textLine2 = createP("Telecommunications Program (ITP) in NYU. His working ranges from");
   textLine3 = createP("Creative Coding, Front End, Installation, to Engaging Interactions,");
   textLine4 = createP("Augmented Reality and Machine Learning.");
-    // "<br>" + "Computer Software Engineering, who is now studying Interactive" +
-    // "<br>" + " Telecommunications Program (ITP) in NYU. His working ranges from " +
-    // "<br>" + "Creative Coding, Front End, Installation, to Engaging Interactions, " +
-    // "<br>" + "Augmented Reality and Machine Learning.");
-  portfolio = createA('https://xiaoma.space/portfolio.pdf', 'Portfolio');
-  resume = createA('https://xiaoma.space/resume.pdf', 'Resume');
+
+  portfolio = createA('https://xiaoma.space/portfolio.pdf', 'Portfolio', '_blank');
+  resume = createA('https://xiaoma.space/resume.pdf', 'Resume', '_blank');
 
   img.loadPixels();
 
@@ -61,7 +57,7 @@ function setup() {
   // text.style("font-size", "15pt");
   textLine1.style("font-family", "Existence");
 
-  textLine2.position(windowWidth / 2 * 0.9, windowHeight / 2 * 0.7  + 50);
+  textLine2.position(windowWidth / 2 * 0.9, windowHeight / 2 * 0.7 + 50);
   // text.style("font-size", "15pt");
   textLine2.style("font-family", "Existence");
 
@@ -88,7 +84,7 @@ function setup() {
       var b = brightness([c]);
 
       if (b > 1) {
-        points.push(createVector(x - startPoint[0].x + windowWidth / 2 * 0.9 - 350, 
+        points.push(createVector(x - startPoint[0].x + windowWidth / 2 * 0.9 - 350,
           y - startPoint[0].y + windowHeight / 2 * 0.7));
       }
     }
