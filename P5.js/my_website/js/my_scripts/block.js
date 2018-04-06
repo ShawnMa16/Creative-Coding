@@ -4,6 +4,9 @@ class Block {
         this.id = id;
         this.clicked = false;
         this.url;
+        if (this.id == aboutID || this.id == forestID || this.id == faceID) {
+            this.lifeSpan = 200;
+        }
     }
 
     // that's where to render the blocks
@@ -24,6 +27,7 @@ class Block {
         // fill(0);
 
         checkRollOver(this.d_blockToMouse, this.size, this.id, this.pos);
+        this.lifeSpan -= 2;
 
         // rect(this.pos.x + this.diff.x, this.pos.y + this.diff.y, (block_core + this.amp * block_scale) * 5, block_core + this.amp * block_scale * 0.5);
         rect(this.pos.x + this.diff.x, this.pos.y + this.diff.y, (block_core + this.amp * block_scale) * rectSize, (block_core + this.amp * block_scale) * rectSize);
@@ -97,17 +101,14 @@ function checkRollOver(d, size, block_id, block_pos) {
 
     if (block_id == aboutID) {
         if (d > size) {
-            let grey = 150;
             cursor(ARROW);
-            fill(grey);
-            grey--;
-
+            fill(150);
         } else {
             cursor(HAND);
             push();
             textAlign(CENTER);
             textFont("Existence");
-            textSize(25);
+            textSize(28);
             fill(255);
             text("about", block_pos.x, block_pos.y - size);
             pop();
@@ -116,16 +117,14 @@ function checkRollOver(d, size, block_id, block_pos) {
     }
     if (block_id == forestID) {
         if (d > size) {
-            let grey = 150;
             // cursor(ARROW);
-            fill(grey);
-            grey--;
+            fill(150);
         } else {
             cursor(HAND);
             push();
             textAlign(CENTER);
             textFont("Existence");
-            textSize(25);
+            textSize(28);
             fill(255);
             text("Future Forest Exeprience", block_pos.x, block_pos.y - size);
             pop();
@@ -135,20 +134,21 @@ function checkRollOver(d, size, block_id, block_pos) {
 
     if (block_id == faceID) {
         if (d > size) {
-            let grey = 150;
             // cursor(ARROW);
-            fill(grey);
-            grey--;
+            fill(150);
+
         } else {
             cursor(HAND);
             push();
             textAlign(CENTER);
             textFont("Existence");
-            textSize(25);
+            textSize(28);
             fill(255);
             text("Artists Face", block_pos.x, block_pos.y - size);
             pop();
             fill(200, this.a);
         }
     }
+
+    // this.lifeSpan -= 2;
 }
