@@ -38,10 +38,9 @@ Vehicle.prototype.update = function () {
 
 // showing the particle system
 Vehicle.prototype.show = function () {
-  // stroke(0);
   // strokeWeight(0);
-  fill(0);
-  rect(this.pos.x, this.pos.y, 0.5, 0.5);
+  stroke(100);
+  rect(this.pos.x, this.pos.y, 0.3, 0.3);
 }
 
 

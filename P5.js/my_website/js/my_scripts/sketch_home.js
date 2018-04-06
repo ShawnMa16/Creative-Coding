@@ -203,7 +203,7 @@ function mouseDragged() {
 
 function mousePressed() {
     // ripple_speed = 0.8;
-    ripples.push(new Ripple(mouseX, mouseY, 0.8));
+    ripples.push(new Ripple(mouseX, mouseY, 1.5));
 
     blocks.forEach((line, i) =>
         line.forEach((block, j) => {
