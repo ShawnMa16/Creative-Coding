@@ -67,6 +67,17 @@ class Block {
                 }, 1200);
             }
         }
+
+        if (this.d_blockToMouse < this.size) {
+            // testing for the face
+            if (this.id == specialThanksID) {
+                this.clicked = true;
+                console.log("332 was clicked!");
+                setTimeout(function () {
+                    window.open("https://jixuansun.space", "_self")
+                }, 1200);
+            }
+        }
     }
     // ------------------------- Jump to different pages end -------------------------
     /**
@@ -145,6 +156,24 @@ function checkRollOver(d, size, block_id, block_pos) {
             textSize(28);
             fill(255);
             text("Artists Face", block_pos.x, block_pos.y - size);
+            pop();
+            fill(200, this.a);
+        }
+    }
+
+    if (block_id == specialThanksID) {
+        if (d > size) {
+            // cursor(ARROW);
+            fill(150);
+
+        } else {
+            cursor(HAND);
+            push();
+            textAlign(CENTER);
+            textFont("Existence");
+            textSize(28);
+            fill(255);
+            text("Special Thanks", block_pos.x, block_pos.y - size);
             pop();
             fill(200, this.a);
         }
