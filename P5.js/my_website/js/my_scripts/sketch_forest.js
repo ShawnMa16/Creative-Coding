@@ -2,10 +2,10 @@ var filter, filterFreq, filterRes;
 
 var birdSound, waterSound, treeSound;
 
+let mouseImg;
+
 function preload() {
   soundFormats('mp3');
-  //waterSound = loadSound("/sound/water.mp3");
-
   //load sound file
   waterSound = loadSound("water.mp3");
   birdSound = loadSound("bird.mp3");
@@ -83,6 +83,8 @@ function setup() {
 
   wavingCount = 0;
 
+  // noCursor();
+
   createCanvas(windowHeight, windowHeight);
 
   //for the projection mapping
@@ -144,6 +146,9 @@ function setup() {
 function draw() {
 
   // console.log(mouseX, mouseY);
+
+  cursor("hand.png");
+  // noCursor();
 
   ellipseMode(CENTER);
   noStroke();
@@ -270,6 +275,9 @@ function draw() {
   // fill(255, 0, 0);
   // ellipse(mapX, mapZ, 20, 20);
   // pop();
+
+  // image(mouseImg, mouseX, mouseY);
+
 }
 
 //--------------------------- kinect tracking ---------------------------------
