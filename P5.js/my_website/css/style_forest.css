@@ -334,7 +334,7 @@ Main components
 
 /* Touch devices */
 
-.touch .cd-nav-trigger {
+/* .touch .cd-nav-trigger {
   display: block;
   z-index: 2;
   position: fixed;
@@ -478,4 +478,4 @@ Main components
   .touch #cd-vertical-nav {
     bottom: 40px;
   }
-}
+} */

@@ -465,6 +465,6 @@ function mouseWheel() {
   noLoop();
 }
 
-window.onload = () => {
-  console.log(document.getElementById('defaultCanvas0'));
-}
+// window.onload = () => {
+//   console.log(document.getElementById('defaultCanvas0'));
+// }
