@@ -51,6 +51,7 @@ let aboutID;
 let forestID;
 let faceID;
 let specialThanksID;
+let sunID;
 
 function setup() {
     createCanvas(windowWidth, windowHeight);
@@ -110,7 +111,8 @@ function setup() {
     aboutID = rectCols + int((blocks[0].length - rectCols) * 2 / 3) + (int(blocks.length / 3) * blocks[0].length);
     forestID = aboutID + blocks[0].length * 2 - 2;
     faceID = aboutID + blocks[0].length * 4 - 4;
-    specialThanksID = aboutID + blocks[0].length * 6 - 3;
+    specialThanksID = aboutID + blocks[0].length * 4 + 2;
+    sunID = aboutID + blocks[0].length * 6 - 3;
 
     console.log(aboutID);
 }

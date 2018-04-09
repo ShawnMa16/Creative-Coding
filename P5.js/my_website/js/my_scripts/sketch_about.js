@@ -14,6 +14,8 @@ let textLine2;
 let textLine3;
 let textLine4;
 
+let emailAddress;
+
 let startPoint = [];
 
 function preload() {
@@ -31,6 +33,7 @@ function setup() {
 
   portfolio = createA('https://xiaoma.space/portfolio.pdf', 'Portfolio', '_blank');
   resume = createA('https://xiaoma.space/resume.pdf', 'Resume', '_blank');
+  emailAddress = createA("mailto:emailme.mx@gmail.com", 'Email');
 
   img.loadPixels();
 
@@ -75,6 +78,9 @@ function setup() {
   resume.position(windowWidth / 2 * 0.9, windowHeight / 2 * 0.7 + 210);
   resume.style("font-family", "Existence");
 
+  emailAddress.position(windowWidth / 2 * 0.9, windowHeight / 2 * 0.7 + 240);
+  emailAddress.style("font-family", "Existence");
+
   console.log(points[0], points[1]);
 
   for (var x = 0; x < img.width; x += 2) {
@@ -99,7 +105,7 @@ function setup() {
 
 function draw() {
   // clear();
-  background(255, 80);
+  background(255, 150);
   // blendMode(ADD);
   // fill(0);
   for (var i = 0; i < vehicles.length; i++) {
