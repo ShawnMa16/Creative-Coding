@@ -13,7 +13,7 @@ function preload() {
 }
 
 //kinect
-var kinectron = null;
+// var kinectron = null;
 
 //water
 var incr1 = 0;
@@ -76,19 +76,16 @@ var address = {
 
 function setup() {
 
-  kinectron = new Kinectron('kinectron', address);
-  kinectron.makeConnection();
+  // kinectron = new Kinectron('kinectron', address);
+  // kinectron.makeConnection();
 
-  kinectron.startBodies(trackBody);
+  // kinectron.startBodies(trackBody);
 
   wavingCount = 0;
 
-  // noCursor();
-
-  createCanvas(windowHeight, windowHeight);
-
-  //for the projection mapping
-  // Maptastic("defaultCanvas0");
+  let myCanvas = createCanvas(windowHeight, windowHeight);
+  myCanvas.position((windowWidth - width)/2, (windowHeight - height)/2);
+  myCanvas.parent("section1");
 
   background(0);
   frameRate(60);
@@ -145,10 +142,7 @@ function setup() {
 
 function draw() {
 
-  // console.log(mouseX, mouseY);
-
   cursor("hand.png");
-  // noCursor();
 
   ellipseMode(CENTER);
   noStroke();
@@ -213,18 +207,6 @@ function draw() {
 
     handRO = true;
 
-    // if (birdSound.isPlaying()) {
-    //   birdSound.pause();
-    // } else {
-    //   birdSound.play();
-    // }
-    //birdSound.setVolume(1, 3);
-    // if (treeSound.isPlaying()) {
-    //   treeSound.stop();
-    // } else {
-    //   treeSound.play('sustain');
-    // }
-    //  birdSound.play();
     myTree.swing(acc.x);
     //console.log(acc.x);
     if (abs(acc.x) > 0.4) {
@@ -254,12 +236,6 @@ function draw() {
       myTree.twig[parseInt(myTree.map[i].x)].location[parseInt(myTree.map[i].y)].y);
   }
 
-  //drawing for the leaves
-  // noStroke();
-  // for (i = 0; i < myTree.twig.length; i++) {
-  //   var num = myTree.twig[i].location.length - 1;
-  //   ellipse(myTree.twig[i].location[num].x, myTree.twig[i].location[num].y, 4, 4);
-  // }
   //------------------------------ finish -------------------------------------
 
   // console.log(myTree.twig.length);
@@ -282,77 +258,77 @@ function draw() {
 
 //--------------------------- kinect tracking ---------------------------------
 
-var tracking = false;
-var playerID = null;
-// var playerID;
-var playerInRange = false;
+// var tracking = false;
+// var playerID = null;
+// // var playerID;
+// var playerInRange = false;
 
-function trackBody(allbodies) {
-  // console.log('bodies found');
+// function trackBody(allbodies) {
+//   // console.log('bodies found');
 
-  var bodies = allbodies.bodies;
+//   var bodies = allbodies.bodies;
 
-  for (var i = 0; i < bodies.length; i++) {
-    // console.log('hi');
-    // if ((!tracking && bodies[i].tracked) == false) window.location.reload(false);
-    if (!tracking && bodies[i].tracked == true) {
-      console.log("getting player");
-      // console.log(bodies[i]);
-      // debugger;
-      playerID = bodies[i].trackingId;
+//   for (var i = 0; i < bodies.length; i++) {
+//     // console.log('hi');
+//     // if ((!tracking && bodies[i].tracked) == false) window.location.reload(false);
+//     if (!tracking && bodies[i].tracked == true) {
+//       console.log("getting player");
+//       // console.log(bodies[i]);
+//       // debugger;
+//       playerID = bodies[i].trackingId;
 
-      // if (!playerID) window.location.reload(false);
+//       // if (!playerID) window.location.reload(false);
 
-      if (bodies[i].joints[1].depthX > 0.40 && bodies[i].joints[1].depthX < 0.70 &&
-        bodies[i].joints[1].cameraZ < 1.80) {
-        playerInRange = true;
-        tracking = true;
-        console.log("player is in range");
-        // setup();
-      }
-      // window.location.reload(false);
-    }
+//       if (bodies[i].joints[1].depthX > 0.40 && bodies[i].joints[1].depthX < 0.70 &&
+//         bodies[i].joints[1].cameraZ < 1.80) {
+//         playerInRange = true;
+//         tracking = true;
+//         console.log("player is in range");
+//         // setup();
+//       }
+//       // window.location.reload(false);
+//     }
 
 
-    if (bodies[i].trackingId == playerID) {
-      // draw the wrist
-      console.log("drawing", playerID);
+//     if (bodies[i].trackingId == playerID) {
+//       // draw the wrist
+//       console.log("drawing", playerID);
 
-      if (tracking == true && playerInRange == true) {
+//       if (tracking == true && playerInRange == true) {
 
-        var bodyx = bodies[i].joints[10].depthX;
-        var bodyz = bodies[i].joints[10].cameraZ;
+//         var bodyx = bodies[i].joints[10].depthX;
+//         var bodyz = bodies[i].joints[10].cameraZ;
 
-        mapY = bodies[i].joints[10].cameraY;
+//         mapY = bodies[i].joints[10].cameraY;
 
-        //using the cooradinate X as the mouseX
-        //using the cooradinate Z as the mouseY
-        mapX = map(bodyx, 0.345, 0.735, 70, 935);
-        mapZ = map(bodyz, 0.68, 1.60, 15, 950);
+//         //using the cooradinate X as the mouseX
+//         //using the cooradinate Z as the mouseY
+//         mapX = map(bodyx, 0.345, 0.735, 70, 935);
+//         mapZ = map(bodyz, 0.68, 1.60, 15, 950);
 
-        console.log(bodyx, bodyz);
+//         console.log(bodyx, bodyz);
 
-        // var m = 0.05;
-        // var f = createVector(mapX, mapZ);
-        //
-        // acc = (f.sub(waterPos)).div(m);
-        //
-        // acc.normalize();
-        //
-        // tempAcc.set(0, acc.y);
-        //
-        // acc.set(acc.x, 0);
-        //
-        // if (bodies[i].joints[1].depthX > 0.8 || bodies[i].joints[1].depthX < 0.3 ||
-        //   bodies[i].joints[1].cameraZ > 1.8) {
-        //   tracking = false;
-        //   playerInRange = false;
-        //   window.location.reload(false);
-        // }
-      }
-    }
-  }
-}
+//         // var m = 0.05;
+//         // var f = createVector(mapX, mapZ);
+//         //
+//         // acc = (f.sub(waterPos)).div(m);
+//         //
+//         // acc.normalize();
+//         //
+//         // tempAcc.set(0, acc.y);
+//         //
+//         // acc.set(acc.x, 0);
+//         //
+//         // if (bodies[i].joints[1].depthX > 0.8 || bodies[i].joints[1].depthX < 0.3 ||
+//         //   bodies[i].joints[1].cameraZ > 1.8) {
+//         //   tracking = false;
+//         //   playerInRange = false;
+//         //   window.location.reload(false);
+//         // }
+//       }
+//     }
+//   }
+// }
 
 //------------------------------- finish --------------------------------------
 
@@ -483,6 +459,10 @@ function drawWater() {
   }
 
   image(pg, 0, height - (240 / 900 * windowHeight));
+}
+
+function mouseWheel() {
+  noLoop();
 }
 
 window.onload = () => {
