@@ -2,7 +2,7 @@ class Stream {
     constructor(x, y) {
         this.pos = createVector(x, y);
         this.speed = floor(random(1, 3)) * sign_size;
-        this.length = floor(random(10, 50)) * sign_size;
+        this.length = floor(random(5, 50)) * sign_size;
         this.toMove = -this.length;
         // this.init = this.toMove;
     }

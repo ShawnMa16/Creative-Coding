@@ -88,6 +88,16 @@ class Block {
                 }, 1200);
             }
         }
+
+        if (this.d_blockToMouse < this.size) {
+            // testing for the face
+            if (this.id == matrixID) {
+                this.clicked = true;
+                setTimeout(function () {
+                    window.open("https://xiaoma.space/matrix", "_self")
+                }, 1200);
+            }
+        }
     }
     // ------------------------- Jump to different pages end -------------------------
     /**
@@ -202,6 +212,24 @@ function checkRollOver(d, size, block_id, block_pos) {
             textSize(28);
             fill(255);
             text("The Sundial", block_pos.x, block_pos.y - size);
+            pop();
+            fill(200, this.a);
+        }
+    }
+
+    if (block_id == matrixID) {
+        if (d > size) {
+            // cursor(ARROW);
+            fill(150);
+
+        } else {
+            cursor(HAND);
+            push();
+            textAlign(CENTER);
+            textFont("Existence");
+            textSize(28);
+            fill(255);
+            text("Matrix Mirror", block_pos.x, block_pos.y - size);
             pop();
             fill(200, this.a);
         }
