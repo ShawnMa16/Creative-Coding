@@ -123,7 +123,7 @@ function draw() {
 
     background(100, 20);
 
-    rectMode(CENTER);
+    // rectMode(CENTER);
 
     // Begin loop for columns
     // --------------------- pushing colors from camera into blocks start ---------------------

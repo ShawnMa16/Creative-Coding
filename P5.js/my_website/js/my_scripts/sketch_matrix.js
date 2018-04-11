@@ -1,9 +1,9 @@
-const typo_size = 16;
+const sign_size = 16;
 
 /**
  * @type {Sign[][]}
  */
-let matrixes;
+let signs;
 
 let video;
 
@@ -20,26 +20,30 @@ let rectCols;
 // finding the middle number for col
 let halfRect;
 
+let streams = [];
+
 function setup() {
+
+    // rectMode(CENTER);
 
     matrix_canvas = createCanvas(windowWidth, windowHeight);
     background(0);
 
-    let left_padding = Math.round(width % typo_size) / 2;
-    let top_padding = Math.round(height % typo_size) / 2;
+    let left_padding = Math.round(width % sign_size) / 2;
+    let top_padding = Math.round(height % sign_size) / 2;
 
     // pushing blocks into 2D arrays
-    matrixes = Array.from({
-            length: Math.floor(height / typo_size)
+    signs = Array.from({
+            length: Math.floor(height / sign_size)
         }, (v, y) =>
         Array.from({
-                length: Math.floor(width / typo_size)
+                length: Math.floor(width / sign_size)
             }, (v, x) =>
-            new Sign(left_padding + typo_size * (x + 0.5), top_padding + typo_size * (y + 0.5), y * Math.floor(width / typo_size) + x)
+            new Sign(left_padding + sign_size * (x + 0.5), top_padding + sign_size * (y + 0.5), y * Math.floor(width / sign_size) + x)
         )
     );
 
-    camRows = matrixes.length;
+    camRows = signs.length;
     camCols = int(camRows * (4 / 3));
     video = createCapture(VIDEO);
     video.size(camCols, camRows);
@@ -63,14 +67,18 @@ function setup() {
     );
 
     console.log(cameraAlphas[0].length, " ", rectCols);
-    console.log(matrixes[0].length);
-    console.log(matrixes[0].length - rectCols);
+    // console.log(signs);
+    console.log(signs[0].length - rectCols);
+
+    for (let i = 0; i < signs[0].length; i++) {
+        streams.push(new Stream(signs[0][i].pos.x - sign_size * 0.5, signs[0][i].pos.y));
+    }
 
 }
 
 function draw() {
     video.loadPixels();
-    background(0, 50);
+    background(0);
 
     // Begin loop for columns
     // --------------------- pushing colors from camera into blocks start ---------------------
@@ -95,7 +103,7 @@ function draw() {
     }
     // --------------------- pushing colors from camera into blocks end ---------------------
 
-    matrixes.forEach((line, i) =>
+    signs.forEach((line, i) =>
         line.forEach((matrix, j) => {
             // block.calcDiff(ripples);
             if (i < camRows) {
@@ -106,4 +114,9 @@ function draw() {
             matrix.update();
         })
     );
+
+    streams.forEach((stream, i) => {
+        stream.update();
+        stream.render();
+    });
 }
