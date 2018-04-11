@@ -39,6 +39,10 @@ app.get('/sun', function (req, res) {
   res.sendfile(__dirname + '/html/sun.html');
 });
 
+app.get('/matrix', function (req, res) {
+  res.sendfile(__dirname + '/html/matrix.html');
+});
+
 let httpsServer = https.createServer(credentials, app);
 
 // Default HTTPS Port
