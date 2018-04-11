@@ -9,7 +9,6 @@ function preload() {
   //load sound file
   waterSound = loadSound("water.mp3");
   birdSound = loadSound("bird.mp3");
-  treeSound = loadSound("tree.mp3");
 }
 
 //kinect
@@ -84,13 +83,14 @@ function setup() {
   wavingCount = 0;
 
   let myCanvas = createCanvas(windowHeight, windowHeight);
-  myCanvas.position((windowWidth - width)/2, (windowHeight - height)/2);
+  myCanvas.position((windowWidth - width) / 2, (windowHeight - height) / 2);
   myCanvas.parent("section1");
 
   background(0);
   frameRate(60);
 
   //sound playing
+  // let s = 
   waterSound.loop();
 
   birdSound.loop();
@@ -142,118 +142,132 @@ function setup() {
 
 function draw() {
 
-  cursor("hand.png");
+  var s = getScroll();
+  console.log(s);
+  if (s[1] < height / 2) {
 
-  ellipseMode(CENTER);
-  noStroke();
-  smooth();
-
-  background(0);
-
-  starsystem.addParticle();
-  starsystem.run();
-
-  var mX = mouseX,
-    mY = mouseY;
-
-  // if (mapX > 0 && mapX < width && mapZ < height && mapZ > 710) {
-
-  // if (mapX > 0 && mapX < 940 && mapZ < 1000 && mapZ > 700) {
-  // filterFreq = map(mapX, 70, 935, 20, 10000);
-  if (mouseX > 0 && mouseX < width && mouseY < height && mouseY > (610 / 900) * windowHeight) {
-    filterFreq = map(mouseX, 0, width, 20, 10000);
-    // Map mouseY to resonance (volume boost) at the cutoff frequency
-    // filterRes = map(mouseY, 610, height, 0, 20);
-    filterRes = 10;
-
-  }
-  // set filter parameters
-  filter.set(filterFreq, filterRes);
-
-  if (handRO) {
-    var panValue = map(mouseX, 0, width, -1, 1);
-
-    // var panValue = map(mapX, 70, 935, -1, 1);
-    birdSound.pan(panValue);
-
-    // var speed = map(mouseY, 0, height, 0, 4);
-    // birdSound.rate(speed);
-    var birdV = map(flock.boids.length, 0, birdNum / 15, 0, 1.2);
-
-    // var vol = map(mapZ, 0, 1200, 0.01, 1.5);
-    //birdSound.amp(vol);
-
-    birdSound.amp(birdV);
-    //birdSound.playMode('sustain');
-  }
-  //birdSound.play();
-  else {
-    birdSound.setVolume(0, 2);
-  }
-
-  //console.log("volume", birdV);
-
-  //birdSound.setVolume(birdV);
-
-  // Draw every value in the FFT spectrum analysis where
-  // x = lowest (10Hz) to highest (22050Hz) frequencies,
-  // h = energy (amplitude / volume) at that frequency
-  // var spectrum = fft.analyze();
-
-  //---------------------- drawing out the tree -------------------------------
-  // if (mouseY > 350 && mouseY < 550 && mouseX < 500 && mouseX > 150) {
-  if (dist(mouseX, mouseY, startX, startY) < 200) {
-    // if (dist(mapX, mapZ, startX, startY) < 200) {
-
-    handRO = true;
-
-    myTree.swing(acc.x);
-    //console.log(acc.x);
-    if (abs(acc.x) > 0.4) {
-      birdIsScared = true;
-      wavingCount++;
-      var startPosition = createVector(startX, startY);
-
-      //birds less then 200
-      if (wavingCount < birdNum) {
-        flock.addBoid(new Boid(startX, startY));
-      }
+    if (waterSound.isPaused()) {
+      waterSound.loop();
+      birdSound.loop();
     }
+
+    // waterSound.play();
+    cursor("hand.png");
+
+    ellipseMode(CENTER);
+    noStroke();
+    smooth();
+
+    background(0);
+
+    starsystem.addParticle();
+    starsystem.run();
+
+    var mX = mouseX,
+      mY = mouseY;
+
+    // if (mapX > 0 && mapX < width && mapZ < height && mapZ > 710) {
+
+    // if (mapX > 0 && mapX < 940 && mapZ < 1000 && mapZ > 700) {
+    // filterFreq = map(mapX, 70, 935, 20, 10000);
+    if (mouseX > 0 && mouseX < width && mouseY < height && mouseY > (610 / 900) * windowHeight) {
+      filterFreq = map(mouseX, 0, width, 20, 10000);
+      // Map mouseY to resonance (volume boost) at the cutoff frequency
+      // filterRes = map(mouseY, 610, height, 0, 20);
+      filterRes = 10;
+
+    }
+    // set filter parameters
+    filter.set(filterFreq, filterRes);
+
+    if (handRO) {
+      var panValue = map(mouseX, 0, width, -1, 1);
+
+      // var panValue = map(mapX, 70, 935, -1, 1);
+      birdSound.pan(panValue);
+
+      // var speed = map(mouseY, 0, height, 0, 4);
+      // birdSound.rate(speed);
+      var birdV = map(flock.boids.length, 0, birdNum / 15, 0, 1.2);
+
+      // var vol = map(mapZ, 0, 1200, 0.01, 1.5);
+      //birdSound.amp(vol);
+
+      birdSound.amp(birdV);
+      //birdSound.playMode('sustain');
+    }
+    //birdSound.play();
+    else {
+      birdSound.setVolume(0, 2);
+    }
+
+    //console.log("volume", birdV);
+
+    //birdSound.setVolume(birdV);
+
+    // Draw every value in the FFT spectrum analysis where
+    // x = lowest (10Hz) to highest (22050Hz) frequencies,
+    // h = energy (amplitude / volume) at that frequency
+    // var spectrum = fft.analyze();
+
+    //---------------------- drawing out the tree -------------------------------
+    // if (mouseY > 350 && mouseY < 550 && mouseX < 500 && mouseX > 150) {
+    if (dist(mouseX, mouseY, startX, startY) < 200) {
+      // if (dist(mapX, mapZ, startX, startY) < 200) {
+
+      handRO = true;
+
+      myTree.swing(acc.x);
+      //console.log(acc.x);
+      if (abs(acc.x) > 0.4) {
+        birdIsScared = true;
+        wavingCount++;
+        var startPosition = createVector(startX, startY);
+
+        //birds less then 200
+        if (wavingCount < birdNum) {
+          flock.addBoid(new Boid(startX, startY));
+        }
+      }
+    } else {
+      handRO = false;
+      myTree.swing(0);
+    }
+    stroke(255);
+    var tempIndex;
+    var i;
+    //console.log(count);
+
+    for (i = 1; i < count; i++) {
+      strokeWeight(myTree.twig[parseInt(myTree.map[i].x)].thickness[parseInt(myTree.map[i].y)]);
+      line(myTree.twig[parseInt(myTree.map[i].x)].location[parseInt(myTree.map[i].y) - 1].x,
+        myTree.twig[parseInt(myTree.map[i].x)].location[parseInt(myTree.map[i].y) - 1].y,
+        myTree.twig[parseInt(myTree.map[i].x)].location[parseInt(myTree.map[i].y)].x,
+        myTree.twig[parseInt(myTree.map[i].x)].location[parseInt(myTree.map[i].y)].y);
+    }
+
+    //------------------------------ finish -------------------------------------
+
+    // console.log(myTree.twig.length);
+    drawWater();
+
+    //control the bird fly;
+    if (birdIsScared) {
+      flock.run();
+      flock.cleanTheDead();
+    }
+    //
+    // push();
+    // fill(255, 0, 0);
+    // ellipse(mapX, mapZ, 20, 20);
+    // pop();
+
+    // image(mouseImg, mouseX, mouseY);
+
   } else {
-    handRO = false;
-    myTree.swing(0);
+    waterSound.pause();
+    birdSound.pause();
   }
-  stroke(255);
-  var tempIndex;
-  var i;
-  //console.log(count);
-
-  for (i = 1; i < count; i++) {
-    strokeWeight(myTree.twig[parseInt(myTree.map[i].x)].thickness[parseInt(myTree.map[i].y)]);
-    line(myTree.twig[parseInt(myTree.map[i].x)].location[parseInt(myTree.map[i].y) - 1].x,
-      myTree.twig[parseInt(myTree.map[i].x)].location[parseInt(myTree.map[i].y) - 1].y,
-      myTree.twig[parseInt(myTree.map[i].x)].location[parseInt(myTree.map[i].y)].x,
-      myTree.twig[parseInt(myTree.map[i].x)].location[parseInt(myTree.map[i].y)].y);
-  }
-
-  //------------------------------ finish -------------------------------------
-
-  // console.log(myTree.twig.length);
-  drawWater();
-
-  //control the bird fly;
-  if (birdIsScared) {
-    flock.run();
-    flock.cleanTheDead();
-  }
-  //
-  // push();
-  // fill(255, 0, 0);
-  // ellipse(mapX, mapZ, 20, 20);
-  // pop();
-
-  // image(mouseImg, mouseX, mouseY);
-
 }
 
 //--------------------------- kinect tracking ---------------------------------
@@ -461,10 +475,23 @@ function drawWater() {
   image(pg, 0, height - (240 / 900 * windowHeight));
 }
 
-function mouseWheel() {
-  noLoop();
-}
+// function mouseWheel() {
+//   noLoop();
+// }
 
 // window.onload = () => {
 //   console.log(document.getElementById('defaultCanvas0'));
 // }
+
+function getScroll() {
+  if (window.pageYOffset != undefined) {
+    return [pageXOffset, pageYOffset];
+  } else {
+    var sx, sy, d = document,
+      r = d.documentElement,
+      b = d.body;
+    sx = r.scrollLeft || b.scrollLeft || 0;
+    sy = r.scrollTop || b.scrollTop || 0;
+    return [sx, sy];
+  }
+}
