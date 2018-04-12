@@ -8,7 +8,7 @@ class Stream {
     }
 
     render() {
-        fill(0);
+        fill(0, 150);
         rect(this.pos.x, -sign_size, sign_size, this.toMove);
         rect(this.pos.x, sign_size + this.toMove + this.length, sign_size, height);
         // console.log(height - (this.length + this.toMove));

@@ -11,10 +11,10 @@ class Sign {
     render(camA) {
         if (camA) {
             // fill the blocks with camera alpha data
-            fill(0, camA, 0);
+            fill(camA);
             // console.log(camA);
         } else {
-            fill(0, 255, 0);
+            fill(255);
         }
         textAlign(CENTER, CENTER);
         text(this.letter, this.pos.x, this.pos.y);
