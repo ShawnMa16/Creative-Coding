@@ -34,26 +34,27 @@ function setup() {
   nose = new Feature(createArea(3, 50, 49, 31, 25, 1.3));
   left_eyebrow = new Feature(createArea(4, 20, 20, 20, 30, 0.5));
   right_eyebrow = new Feature(createArea(4, 20, 20, 20, 30, 0.5));
+
 }
 
 function draw() {
   // put drawing code here
-  
+
   background(255);
   for (let i = 0; i < faces.length; i++) {
     faceDect(faces[i]);
-    // console.log(faces[i]);
+    console.log(faces[i].candideTriangles);
   }
 }
 
 function faceDect(face) {
 
-  if (face.state === brfv4.BRFState.FACE_TRACKING_START || face.state === brfv4.BRFState.FACE_TRACKING) {
-    face.points.forEach(function (point) {
-      // fill(255);
-      // ellipse(point.x, point.y, 5, 5);
-      // console.log(point);
-    });
+  if (face.state === brfv4.BRFState.FACE_TRACKING) {
+    // face.points.forEach(function (point) {
+    //   // fill(255);
+    //   // ellipse(point.x, point.y, 5, 5);
+    //   // console.log(point);
+    // });
 
     for (let i = 0; i < face.points.length; i++) {
       // pushing data for left eye
@@ -77,10 +78,10 @@ function faceDect(face) {
       }
 
       // pushing data for eyebrows
-      if(17 < i && i < 22) {
+      if (17 < i && i < 22) {
         left_eyebrow_index[i - 18] = face.points[i];
       }
-      if(21 < i && i < 26) {
+      if (21 < i && i < 26) {
         right_eyebrow_index[i - 22] = face.points[i];
       }
     }
