@@ -43,6 +43,10 @@ app.get('/matrix', function (req, res) {
   res.sendfile(__dirname + '/html/matrix.html');
 });
 
+app.get('/ripple', function (req, res) {
+  res.sendfile(__dirname + '/html/ripple.html');
+});
+
 let httpsServer = https.createServer(credentials, app);
 
 // Default HTTPS Port

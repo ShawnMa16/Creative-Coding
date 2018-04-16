@@ -4,9 +4,6 @@ class Block {
         this.id = id;
         this.clicked = false;
         this.url;
-        if (this.id == aboutID || this.id == forestID || this.id == faceID) {
-            this.lifeSpan = 200;
-        }
     }
 
     // that's where to render the blocks
@@ -26,79 +23,80 @@ class Block {
         // fill(255, cubicInOut(this.amp, 60, 240, 15));
         // fill(0);
 
-        checkRollOver(this.d_blockToMouse, this.size, this.id, this.pos);
-        this.lifeSpan -= 2;
+        // checkRollOver(this.d_blockToMouse, this.size, this.id, this.pos);
+
+        // this.lifeSpan -= 2;
 
         // rect(this.pos.x + this.diff.x, this.pos.y + this.diff.y, (block_core + this.amp * block_scale) * 5, block_core + this.amp * block_scale * 0.5);
         rect(this.pos.x + this.diff.x, this.pos.y + this.diff.y, (block_core + this.amp * block_scale) * rectSize, (block_core + this.amp * block_scale) * rectSize);
     }
 
     // ------------------------- Jump to different pages start -----------------------
-    checkClicked() {
-        if (this.d_blockToMouse < this.size) {
-            // testing for the about
-            if (this.id == aboutID) {
-                this.clicked = true;
-                console.log("200 was clicked!");
-                setTimeout(function () {
-                    window.open("https://xiaoma.space/about", "_self")
-                }, 1200);
-            }
-        }
+    // checkClicked() {
+    //     if (this.d_blockToMouse < this.size) {
+    //         // testing for the about
+    //         if (this.id == aboutID) {
+    //             this.clicked = true;
+    //             console.log("200 was clicked!");
+    //             setTimeout(function () {
+    //                 window.open("https://xiaoma.space/about", "_self")
+    //             }, 1200);
+    //         }
+    //     }
 
-        if (this.d_blockToMouse < this.size) {
-            // testing for the forest
-            if (this.id == forestID) {
-                this.clicked = true;
-                console.log("266 was clicked!");
-                setTimeout(function () {
-                    window.open("https://xiaoma.space/forest", "_self")
-                }, 1200);
-            }
-        }
+    //     if (this.d_blockToMouse < this.size) {
+    //         // testing for the forest
+    //         if (this.id == forestID) {
+    //             this.clicked = true;
+    //             console.log("266 was clicked!");
+    //             setTimeout(function () {
+    //                 window.open("https://xiaoma.space/forest", "_self")
+    //             }, 1200);
+    //         }
+    //     }
 
-        if (this.d_blockToMouse < this.size) {
-            // testing for the face
-            if (this.id == faceID) {
-                this.clicked = true;
-                console.log("332 was clicked!");
-                setTimeout(function () {
-                    window.open("https://xiaoma.space/face", "_self")
-                }, 1200);
-            }
-        }
+    //     if (this.d_blockToMouse < this.size) {
+    //         // testing for the face
+    //         if (this.id == faceID) {
+    //             this.clicked = true;
+    //             console.log("332 was clicked!");
+    //             setTimeout(function () {
+    //                 window.open("https://xiaoma.space/face", "_self")
+    //             }, 1200);
+    //         }
+    //     }
 
-        if (this.d_blockToMouse < this.size) {
-            // testing for the face
-            if (this.id == specialThanksID) {
-                this.clicked = true;
-                console.log("332 was clicked!");
-                setTimeout(function () {
-                    window.open("https://jixuansun.space", "_self")
-                }, 1200);
-            }
-        }
+    //     if (this.d_blockToMouse < this.size) {
+    //         // testing for the face
+    //         if (this.id == specialThanksID) {
+    //             this.clicked = true;
+    //             console.log("332 was clicked!");
+    //             setTimeout(function () {
+    //                 window.open("https://jixuansun.space", "_self")
+    //             }, 1200);
+    //         }
+    //     }
 
-        if (this.d_blockToMouse < this.size) {
-            // testing for the face
-            if (this.id == sunID) {
-                this.clicked = true;
-                setTimeout(function () {
-                    window.open("https://xiaoma.space/sun", "_self")
-                }, 1200);
-            }
-        }
+    //     if (this.d_blockToMouse < this.size) {
+    //         // testing for the face
+    //         if (this.id == sunID) {
+    //             this.clicked = true;
+    //             setTimeout(function () {
+    //                 window.open("https://xiaoma.space/sun", "_self")
+    //             }, 1200);
+    //         }
+    //     }
 
-        if (this.d_blockToMouse < this.size) {
-            // testing for the face
-            if (this.id == matrixID) {
-                this.clicked = true;
-                setTimeout(function () {
-                    window.open("https://xiaoma.space/matrix", "_self")
-                }, 1200);
-            }
-        }
-    }
+    //     if (this.d_blockToMouse < this.size) {
+    //         // testing for the face
+    //         if (this.id == matrixID) {
+    //             this.clicked = true;
+    //             setTimeout(function () {
+    //                 window.open("https://xiaoma.space/matrix", "_self")
+    //             }, 1200);
+    //         }
+    //     }
+    // }
     // ------------------------- Jump to different pages end -------------------------
     /**
      * @param {Ripple[]} ripples
