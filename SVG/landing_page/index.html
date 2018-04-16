@@ -3,25 +3,51 @@
 <head>
     <title>Xiao Ma | Home</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/svg.js/2.6.4/svg.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style_poly.css">
 </head>
 
 <body>
-    <svg id="mySVG" width="600" height="600">
-        <g>
-            <polygon id="poly0"> </polygon>
-            <text id="text0" x="405" y="150" font-family="Verdana" font-size="20" fill="white" perspective="">hello</text>
-        </g>
-        <g>
-            <polygon id="poly1"> </polygon>
-            <text id="text1" x="370" y="150" font-family="Verdana" font-size="20" fill="white">hello</text>
-        </g>
-        <polygon id="poly2"> </polygon>
-        <polygon id="poly3"> </polygon>
-        <polygon id="poly4"> </polygon>
-        <polygon id="poly5"> </polygon>
-        <polygon id="poly6"> </polygon>
 
-    </svg>
+    <g id="landing_SVG">
+
+        <svg id="mySVG" width="600" height="600">
+            <g id="page0" name="about">
+                <a xlink:href="https://xiaoma.space/about" target="_self">
+                    <polygon id="poly0">
+                    </polygon>
+                    <text id="text0" style="text-anchor: middle" font-family="Avenir" font-size="22" fill="white" perspective="">about</text>
+            </g>
+            <g id="page1" name="special_thanks">
+                <polygon id="poly1"> </polygon>
+                <text id="text1" style="text-anchor: middle" font-family="Avenir" font-size="22" fill="white">thanks</text>
+            </g>
+            <g id="page2" name="matrix">
+                <polygon id="poly2"> </polygon>
+                <text id="text2" style="text-anchor: middle" font-family="Avenir" font-size="22" fill="white">matrix</text>
+
+            </g>
+            <g id="page3" name="face">
+                <polygon id="poly3"> </polygon>
+                <text id="text3" style="text-anchor: middle" font-family="Avenir" font-size="22" fill="white">face</text>
+
+            </g>
+            <g id="page4" name="sundial">
+                <polygon id="poly4"> </polygon>
+                <text id="text4" style="text-anchor: middle" font-family="Avenir" font-size="22" fill="white">sundial</text>
+
+            </g>
+            <g id="page5" name="ripple">
+                <polygon id="poly5"> </polygon>
+                <text id="text5" style="text-anchor: middle" font-family="Avenir" font-size="22" fill="white">ripple</text>
+
+            </g>
+            <g id="page6" name="forest">
+                <polygon id="poly6"> </polygon>
+                <text id="text6" style="text-anchor: middle" font-family="Avenir" font-size="22" fill="white">forest</text>
+            </g>
+        </svg>
+
+    </g>
     <script src="sketch_polygon.js"></script>
     <script src="polygon.js"></script>
 </body>

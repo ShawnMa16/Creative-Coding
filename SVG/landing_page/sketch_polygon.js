@@ -4,6 +4,7 @@ let angle = Math.PI / 9.0;
 let offSetX = 35;
 
 let toMove = 18;
+
 window.onload = function () {
     init();
 };

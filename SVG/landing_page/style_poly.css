@@ -1,0 +1,75 @@
+#landing_SVG {
+    position: absolute;
+    left: 50%;
+    top: 55%;
+    bottom: auto;
+    right: auto;
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -o-transform: translateX(-50%) translateY(-50%);
+}
+
+#text6 {
+    width: 50px;
+    height: 20px;
+    position: absolute;
+    -webkit-transform-origin: center;
+    -webkit-transform-style: preserve-3d;
+    -webkit-transform: rotateY(50deg) rotateZ(14deg) rotateX(10deg) translateX(-68px) translateY(-43px);
+    transform: rotateY(50deg) rotateZ(14deg) rotateX(10deg) translateX(-68px) translateY(-43px);
+}
+
+#text5 {
+    width: 50px;
+    height: 20px;
+    position: absolute;
+    -webkit-transform-origin: center;
+    -webkit-transform-style: preserve-3d;
+    -webkit-transform: rotateY(50deg) rotateZ(14deg) rotateX(10deg) translateX(-45px) translateY(-60px);
+}
+
+#text4 {
+    width: 50px;
+    height: 20px;
+    position: absolute;
+    -webkit-transform-origin: center;
+    -webkit-transform-style: preserve-3d;
+    -webkit-transform: rotateY(50deg) rotateZ(14deg) rotateX(10deg) translateX(-30px) translateY(-75px);
+}
+
+#text3 {
+    width: 50px;
+    height: 20px;
+    position: absolute;
+    -webkit-transform-origin: center;
+    -webkit-transform-style: preserve-3d;
+    -webkit-transform: rotateY(50deg) rotateZ(14deg) rotateX(10deg) translateX(-8px) translateY(-89px);
+}
+
+#text2 {
+    width: 50px;
+    height: 20px;
+    position: absolute;
+    -webkit-transform-origin: center;
+    -webkit-transform-style: preserve-3d;
+    -webkit-transform: rotateY(50deg) rotateZ(14deg) rotateX(10deg) translateX(15px) translateY(-104px);
+}
+
+#text1 {
+    width: 50px;
+    height: 20px;
+    position: absolute;
+    -webkit-transform-origin: center;
+    -webkit-transform-style: preserve-3d;
+    transform: rotateY(50deg) rotateZ(14deg) rotateX(10deg) translateX(38px) translateY(-118px);
+}
+
+#text0 {
+    width: 50px;
+    height: 20px;
+    position: absolute;
+    -webkit-transform-origin: center;
+    -webkit-transform-style: preserve-3d;
+    transform: rotateY(50deg) rotateZ(14deg) rotateX(10deg) translateX(50px) translateY(-133px);
+}
