@@ -4,7 +4,7 @@ class Polygon {
         this.polyID = polyID;
         this.textID = textID;
 
-        console.log(this.polyID);
+        // console.log(this.polyID);
         // getting DOM element
         this.nodeDOM = document.getElementById(polyID);
         this.textDOM = document.getElementById(textID);
@@ -43,7 +43,7 @@ class Polygon {
         // let tempPolyID = "poly" + _id;
         // let 
         this.polySVG.click(function () {
-            console.log("clicked");
+            // console.log("clicked");
             this.fill({
                 color: 'grey'
             });

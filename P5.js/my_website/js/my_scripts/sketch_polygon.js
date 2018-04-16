@@ -18,5 +18,5 @@ function init() {
         poly.setAtts();
         poly.animations(i);
     });
-    console.log(polygonArray[0]);
+    // console.log(polygonArray[0]);
 }
