@@ -12,8 +12,10 @@ class Polygon {
         this.textDOM = document.getElementById('text' + this.id);
 
         // getting SVG.js element
-        this.polySVG = SVG.get('poly' + this.id);
-        this.textSVG = SVG.get('text' + this.id);
+        // this.polySVG = SVG.get('poly' + this.id);
+        // this.textSVG = SVG.get('text' + this.id);
+
+        this.pageSVG = SVG.get('page' + this.id);
 
         this.pos = [_x, _y];
         this.angle = Math.PI / 9.0;
@@ -44,21 +46,20 @@ class Polygon {
     animations(_id) {
         // let temp'poly' + this.id = "poly" + _id;
         // let 
-        this.polySVG.click(function () {
+        this.pageSVG.click(function () {
             // console.log("clicked");
             this.fill({
                 color: 'grey'
             });
         });
-
-        this.polySVG.on("mouseover", function () {
+        this.pageSVG.on("mouseover", function () {
             document.getElementById("poly" + _id).style.cursor = "pointer";
             // this.animate(150).translate(0, -20);
             // SVG.get("text" + _id).animate(150).translate(0, -20);
             SVG.get("page" + _id).animate(150, '>').dmove(0, -20);
         });
 
-        this.polySVG.on("mouseout", function () {
+        this.pageSVG.on("mouseout", function () {
             // this.animate(10).translate(0, 0);
             // SVG.get("text" + _id).animate(10).translate(0, 0);
             SVG.get("page" + _id).animate(10, '>').dmove(0, 20);

@@ -17,6 +17,7 @@
     -webkit-transform-origin: center;
     -webkit-transform-style: preserve-3d;
     -webkit-transform: rotateY(50deg) rotateZ(14deg) rotateX(10deg) translateX(-50px) translateY(10px);
+    pointer-events: none;
     /* transform: rotateY(50deg) rotateZ(14deg) rotateX(10deg) translateX(-68px) translateY(-43px); */
 }
 
@@ -27,6 +28,7 @@
     -webkit-transform-origin: center;
     -webkit-transform-style: preserve-3d;
     -webkit-transform: rotateY(50deg) rotateZ(14deg) rotateX(10deg) translateX(-45px) translateY(-40px);
+    pointer-events: none;
 }
 
 #text4 {
@@ -36,6 +38,7 @@
     -webkit-transform-origin: center;
     -webkit-transform-style: preserve-3d;
     -webkit-transform: rotateY(50deg) rotateZ(14deg) rotateX(10deg) translateX(-39px) translateY(-45px);
+    pointer-events: none;
 }
 
 #text3 {
@@ -45,6 +48,7 @@
     -webkit-transform-origin: center;
     -webkit-transform-style: preserve-3d;
     -webkit-transform: rotateY(50deg) rotateZ(14deg) rotateX(10deg) translateX(-30px) translateY(-49px);
+    pointer-events: none;
 }
 
 #text2 {
@@ -54,6 +58,7 @@
     -webkit-transform-origin: center;
     -webkit-transform-style: preserve-3d;
     -webkit-transform: rotateY(50deg) rotateZ(14deg) rotateX(10deg) translateX(-26px) translateY(-53px);
+    pointer-events: none;
 }
 
 #text1 {
@@ -63,6 +68,7 @@
     -webkit-transform-origin: center;
     -webkit-transform-style: preserve-3d;
     transform: rotateY(50deg) rotateZ(14deg) rotateX(10deg) translateX(-18px) translateY(-58px);
+    pointer-events: none;
 }
 
 #text0 {
@@ -72,4 +78,5 @@
     -webkit-transform-origin: center;
     -webkit-transform-style: preserve-3d;
     transform: rotateY(50deg) rotateZ(14deg) rotateX(10deg) translateX(-15px) translateY(-61px);
+    pointer-events: none;
 }
