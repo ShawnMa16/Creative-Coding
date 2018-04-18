@@ -13,8 +13,11 @@ var world;
 let ground;
 
 let breaks;
+let breakSize = 45;
 
 let img;
+let capture;
+let myCanvas;
 
 let groundCategory = 0x0002,
     breakCategory = 0x0004;
@@ -34,20 +37,23 @@ function setup() {
         // collisionFilter: 100
     }
 
-    let myCanvas = createCanvas(windowWidth, windowHeight);
+    myCanvas = createCanvas(windowWidth, windowHeight);
+    // capture = createCapture(VIDEO);
+    // capture.size(640, 480);
+
     engine = Engine.create();
     world = engine.world;
 
     Engine.run(engine);
 
-    ground = Bodies.rectangle(320, height + 50, 400, 100, options);
+    ground = Bodies.rectangle(width/2, height + 50, 400, 100, options);
     World.add(world, ground);
 
     breaks = Array.from({
         length: 16
     }, (v, y) => Array.from({
         length: 12
-    }, (v, x) => new Break(img, x * 45 + 22.5, y * 45 + 22.5, y * 6 + x)));
+    }, (v, x) => new Break(img, x * breakSize + breakSize/2, y * breakSize + breakSize/2, y * 12 + x)));
 
     console.log(breaks[0]);
 }
@@ -63,8 +69,8 @@ function draw() {
         }));
 }
 
-function keyPressed(){
-    if(keyCode == ENTER){
-        sleeping = false;
+function keyPressed() {
+    if (keyCode == ENTER) {
+        sleeping = !sleeping;
     }
 }
