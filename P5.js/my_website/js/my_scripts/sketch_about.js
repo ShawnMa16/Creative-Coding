@@ -50,7 +50,7 @@ function setup() {
     }
   }
 
-  console.log(startPoint[0]);
+  // console.log(startPoint[0]);
 
   textLine0.position(windowWidth / 2 * 0.9, windowHeight / 2 * 0.7);
   // text.style("font-size", "15pt");
@@ -81,7 +81,7 @@ function setup() {
   emailAddress.position(windowWidth / 2 * 0.9, windowHeight / 2 * 0.7 + 240);
   emailAddress.style("font-family", "Existence");
 
-  console.log(points[0], points[1]);
+  // console.log(points[0], points[1]);
 
   for (var x = 0; x < img.width; x += 2) {
     for (var y = 0; y < img.height; y += 2) {
