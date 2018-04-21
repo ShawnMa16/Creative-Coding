@@ -19,6 +19,7 @@ app.use(express.static('js/libs/createjs'));
 app.use(express.static('js/libs/highlight'));
 app.use(express.static('js/libs/quicksettings'));
 app.use(express.static('js/libs/threejs'));
+app.use(express.static('js/libs/matterjs'));
 app.use(express.static('sound'));
 app.use(express.static('assests'));
 app.use(express.static('css'));
@@ -47,6 +48,9 @@ app.get('/ripple', function (req, res) {
   res.sendfile(__dirname + '/html/ripple.html');
 });
 
+app.get('/cloth', function (req, res) {
+  res.sendfile(__dirname + '/html/cloth.html');
+});
 let httpsServer = https.createServer(credentials, app);
 
 // Default HTTPS Port
