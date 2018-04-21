@@ -12,7 +12,7 @@ class Polygon {
         this.textDOM = document.getElementById('text' + this.id);
 
         // getting SVG.js element
-        // this.polySVG = SVG.get('poly' + this.id);
+        this.polySVG = SVG.get('poly' + this.id);
         // this.textSVG = SVG.get('text' + this.id);
 
         this.pageSVG = SVG.get('page' + this.id);
@@ -45,8 +45,8 @@ class Polygon {
 
     animations(_id) {
         // let temp'poly' + this.id = "poly" + _id;
-        // let 
-        this.pageSVG.click(function () {
+        // set the polys to grey when clicked
+        this.polySVG.click(function () {
             // console.log("clicked");
             this.fill({
                 color: 'grey'

@@ -14,6 +14,8 @@ let textLine2;
 let textLine3;
 let textLine4;
 
+let notification;
+
 let emailAddress;
 
 let startPoint = [];
@@ -30,6 +32,7 @@ function setup() {
   textLine2 = createP("Telecommunications Program (ITP) in NYU. His working ranges from");
   textLine3 = createP("Creative Coding, Front End, Installation, to Engaging Interactions,");
   textLine4 = createP("Augmented Reality and Machine Learning.");
+  notification = createP("I built my own website.");
 
   portfolio = createA('https://xiaoma.space/portfolio.pdf', 'Portfolio', '_blank');
   resume = createA('https://xiaoma.space/resume.pdf', 'Resume', '_blank');
@@ -54,32 +57,36 @@ function setup() {
 
   textLine0.position(windowWidth / 2 * 0.9, windowHeight / 2 * 0.7);
   // text.style("font-size", "15pt");
-  textLine0.style("font-family", "Existence");
+  textLine0.style("font-family", "Avenir");
 
   textLine1.position(windowWidth / 2 * 0.9, windowHeight / 2 * 0.7 + 25);
   // text.style("font-size", "15pt");
-  textLine1.style("font-family", "Existence");
+  textLine1.style("font-family", "Avenir");
 
   textLine2.position(windowWidth / 2 * 0.9, windowHeight / 2 * 0.7 + 50);
   // text.style("font-size", "15pt");
-  textLine2.style("font-family", "Existence");
+  textLine2.style("font-family", "Avenir");
 
   textLine3.position(windowWidth / 2 * 0.9, windowHeight / 2 * 0.7 + 75);
   // text.style("font-size", "15pt");
-  textLine3.style("font-family", "Existence");
+  textLine3.style("font-family", "Avenir");
 
   textLine4.position(windowWidth / 2 * 0.9, windowHeight / 2 * 0.7 + 100);
   // text.style("font-size", "15pt");
-  textLine4.style("font-family", "Existence");
+  textLine4.style("font-family", "Avenir");
 
-  portfolio.position(windowWidth / 2 * 0.9, windowHeight / 2 * 0.7 + 180);
-  portfolio.style("font-family", "Existence");
 
-  resume.position(windowWidth / 2 * 0.9, windowHeight / 2 * 0.7 + 210);
-  resume.style("font-family", "Existence");
+  notification.position(windowWidth / 2 * 0.9, windowHeight / 2 * 0.7 + 150);
+  notification.style("font-family", "Avenir");
 
-  emailAddress.position(windowWidth / 2 * 0.9, windowHeight / 2 * 0.7 + 240);
-  emailAddress.style("font-family", "Existence");
+  portfolio.position(windowWidth / 2 * 0.9, windowHeight / 2 * 0.7 + 200);
+  portfolio.style("font-family", "Avenir");
+
+  resume.position(windowWidth / 2 * 0.9, windowHeight / 2 * 0.7 + 230);
+  resume.style("font-family", "Avenir");
+
+  emailAddress.position(windowWidth / 2 * 0.9, windowHeight / 2 * 0.7 + 260);
+  emailAddress.style("font-family", "Avenir");
 
   // console.log(points[0], points[1]);
 
