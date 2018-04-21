@@ -21,11 +21,6 @@ let tempBodies = [];
 
 let myCanvas;
 
-let groundCategory = 0x0002,
-    breakCategory = 0x0004;
-
-// let sleeping = true;
-
 let constraint;
 let mouseConstraint;
 
@@ -35,34 +30,24 @@ let windPos;
 let clothBodies = [];
 let lines = [];
 
+// setting the wind force
+let from;
+let force;
+let micInput;
+// count fot the first line
+let count;
+
 function setup() {
-    let options = {
-        isStatic: true,
-        collisionFilter: {
-            category: groundCategory
-        }
-        // collisionFilter: 100
-    }
 
-    // windForce0 = {
-    //     x: 0.000025,
-    //     y: 0
-    // };
-
-    // windForce1 = {
-    //     x: 0.002,
-    //     y: -0.004
-    // };
-
-    windPos = {
-        x: -100,
-        y: 600
-    }
+    from = {
+        x: 0,
+        y: 400
+    };
+    count = 0;
+    micInput = false;
 
     myCanvas = createCanvas(800, 800);
     frameRate(60);
-    // capture = createCapture(VIDEO);
-    // capture.size(640, 480);
 
     engine = Engine.create();
     world = engine.world;
@@ -80,9 +65,6 @@ function setup() {
     mouseConstraint.mouse.pixelRatio = pixelDensity();
     World.add(world, mouseConstraint);
     console.log(mouseConstraint);
-
-    // ground = Bodies.rectangle(width / 2, height + 50, 400, 100, options);
-    // World.add(world, ground);
 
     //-------------------------------- attrubutes for the cloth begin -------------------------------- 
     let group = Body.nextGroup(true);
@@ -146,38 +128,25 @@ function setup() {
 }
 
 function draw() {
+    // (Matter.Common.random(-2e-4, 0))
+    if (!micInput) {
+        force = createVector((Matter.Common.random(0, 2e-4)), 0);
+    } else {
+        force.mult(0.99);
+    }
+    // force = createVector(-random((Matter.Common.random(-2e-4, 0)) / 4, (Matter.Common.random(-2e-4, 0))), 0);
+    setTimeout(() => {
+        applyWindForce(from, force);
+    }, 3000);
 
-    // console.log('hi');
+    // setTimeout(() => {
+    //     blowAway(count);
+    //     // if(count == 20) clearTimeout(blowAway(_id));
+    // }, 10000);
 
-    // image(img,0,0);
-
-    // strokeWeight(2);
-    // stroke(255);
-
-    // if (sin(frameCount % 300) == 0) {
-    //     engine.timing.timeScale = 0.5;
-    //     let tempForce = 0.001;
-    //     for (let i = 0; i < 100; i++) {
-    //         let testForce = {
-    //             x: tempForce *=1.001,
-    //             y: -(tempForce *= 1.001)
-    //         }
-    //         // for (let i = 59; i < clothBodies.length; i++) {
-    //         //     Body.applyForce(clothBodies[i], clothBodies[i].position, testForce);
-
-    //         //     // clothBodies.forEach((body, i) => {
-    //         //     //     Body.applyForce(body, windPos, windForce0);
-    //         //     //     // Body.applyForce(body, windPos, windForce1);
-    //         //     // });
-    //         // }
-    //         Body.applyForce(clothBodies[9][10], windPos, testForce);
-    //         // clothBodies.forEach((line,i)=>{
-    //         //     line.forEach((point,j) => {
-    //         //         Body.applyForce(point, windPos, testForce);
-    //         //     });
-    //         // });
-    //     }
-    // }
+    // setTimeout(() => {
+    //     clothBodies[0][1].isStatic = false;
+    // }, 16000);
 
     background(20, 20, 20);
     stroke(255);
@@ -186,56 +155,38 @@ function draw() {
     // fill(255);
     noFill();
 
-    // clothBodies.forEach((line, i) => {
-    //     line.forEach((body, j) => {
-    //         let pos = body.position;
-    //         let r = body.circleRadius;
-    //         let angle = body.angle;
-    //         push();
-    //         // translate(pos.x, pos.x);
-    //         // rectMode(CENTER);
-    //         rotate(angle);
-    //         // if (i < 19) {
-    //         //     line(pos.x, pos.x, bodies[i + 1].position.x, bodies[i + 1].position.y);
-    //         // }
-    //         // point(pos.x, pos.y, 18, 18);
-    //         point(pos.x, pos.y);
-    //         // line(0, 0, r, 0);
-    //         pop();
-    //     });
-    // });
-
     lines.forEach((line, i) => {
         line.render();
     });
-    // for (let i = 0; i < cloth.bodies.length; i++) {
-    //     // console.log(clothBodies[i]);
-    //     let circle = cloth.bodies[i];
-    //     let pos = circle.position;
-    //     let r = circle.circleRadius;
-    //     let angle = circle.angle;
-    //     push();
-    //     // translate(pos.x, pos.x);
-    //     // rectMode(CENTER);
-    //     rotate(angle);
-    //     // if (i < 19) {
-    //     //     line(pos.x, pos.x, bodies[i + 1].position.x, bodies[i + 1].position.y);
-    //     // }
-    //     // point(pos.x, pos.y, 18, 18);
-    //     point(pos.x, pos.y);
-    //     // line(0, 0, r, 0);
-    //     pop();
-    // }
+}
 
-    // let a = mouseConstraint.constraint.pointA;
-    // let b = mouseConstraint.constraint.pointB;
-    // // console.log(a);
-    // let bodyB = mouseConstraint.constraint.bodyB;
-    // // console.log(mouseConstraint.body.position);
-    // if (bodyB) {
-    //     // console.log(bodyB);
-    //     stroke(255);
-    //     // line(a.x, a.y, b.x + bodyB.position.x, b.y + bodyB.position.y);
-    // }
+// blow way the cloth node by node
+blowAway = (_id) => {
+    clothBodies[0][_id].isStatic = false;
+    _id++;
+    console.log(_id);
 
+    setTimeout(() => {
+        blowAway(_id)
+    }, _id * 1000 + 1000);
+
+    // if(_id == 20) clearTimeout(blowAway(_id));
+};
+
+applyWindForce = (_location, _wind) => {
+    clothBodies.forEach((line, i) => {
+        line.forEach((point, j) => {
+            Body.applyForce(point, _location, _wind);
+        });
+    });
+};
+
+function keyPressed() {
+    if (keyCode === ENTER) {
+        micInput = !micInput;
+        mic = new p5.AudioIn();
+        // start the Audio Input.
+        // By default, it does not .connect() (to the computer speakers)
+        mic.start();
+    }
 }
