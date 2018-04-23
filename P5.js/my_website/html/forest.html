@@ -11,23 +11,29 @@
   <!-- CSS reset -->
   <link rel="stylesheet" type="text/css" href="style_forest.css">
   <!-- Resource style -->
+  <!-- <script src="http://github.com/Modernizr/Modernizr/raw/master/modernizr.js"></script> -->
+
   <script src="modernizr.js"></script>
   <!-- Modernizr -->
 
+  <!-- Resource jQuery -->
   <script src="p5.min.js"></script>
   <script src="p5.dom.min.js"></script>
   <script src="p5.sound.min.js"></script>
+  <script src="newTree.js"></script>
+  <script src="stars.js"></script>
+  <script src="newBirds.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="page_animation.js"></script>
 
   <title>Future Forest Experience</title>
 </head>
 
 <body>
-
-  <script src="sketch_forest.js"></script>
-  <script src="newTree.js"></script>
-  <script src="stars.js"></script>
-  <script src="newBirds.js"></script>
-
+  <div id="overlay">
+    <img id="loading" src="loading.svg" alt="Loading" />
+  </div>
+  <!--  -->
   <nav id="cd-vertical-nav">
     <ul>
       <li>
@@ -62,7 +68,6 @@
 
   <section id="section2" class="cd-section">
     <h1>Future Forest Experience</h1>
-
     <p id="intro">&ldquo;An immersive future forest experience inspired by the Japanese rock garden&rdquo;</p>
     <p id="category">Creative Coding | Interaction Design | Installation</p>
     <p id="jobD">Project Leader, gourp of three</p>
@@ -70,7 +75,6 @@
       act like. All animations are performed beautifully by code in javascript. Besides, sand is an essential part of this
       project. Not only it was used as the projection material, but also it is the physical contact between the audiences
       and the project. I was in charge of designing the whole project, implementing the tree and the water animations.</p>
-
   </section>
   <!-- cd-section -->
 
@@ -78,9 +82,9 @@
     <iframe id="video" width="1280" height="720" src="https://www.youtube.com/embed/LmuVK2URqBI?rel=0" frameborder="0" allow="autoplay; encrypted-media"
       allowfullscreen></iframe>
   </section>
-  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-  <script src="page_animation.js"></script>
-  <!-- Resource jQuery -->
+
+  <script src="sketch_forest.js"></script>
+
 </body>
 
 </html>

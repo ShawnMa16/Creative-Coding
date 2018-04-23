@@ -4,6 +4,12 @@ var birdSound, waterSound, treeSound;
 
 let mouseImg;
 
+$(window).on('load', function () {
+  // PAGE IS FULLY LOADED  
+  // FADE OUT YOUR OVERLAYING DIV
+  $('#overlay').fadeOut(500);
+});
+
 function preload() {
   soundFormats('mp3');
   //load sound file
@@ -143,7 +149,7 @@ function setup() {
 function draw() {
 
   var s = getScroll();
-  console.log(s);
+  // console.log(s);
   if (s[1] < height / 2) {
 
     if (waterSound.isPaused()) {
