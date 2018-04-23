@@ -13,3 +13,24 @@ body {
   /* This centers our sketch vertically. */
   align-items: center;
 }
+
+#overlay {
+  position: fixed;
+  height: 100%; 
+  width: 100%;
+  z-index: 99999;
+  top: 0%;
+  left: 0%;
+  bottom: 0;
+  right: 0;
+  background: white;
+  transition: 1s 0.4s;
+}
+
+#loading {
+  position: absolute;
+  left: 45%;
+  top: 45%;
+  bottom: auto;
+  right: auto;
+}

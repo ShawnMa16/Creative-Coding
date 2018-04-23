@@ -20,6 +20,12 @@ let emailAddress;
 
 let startPoint = [];
 
+$(window).on('load', function () {
+  // PAGE IS FULLY LOADED  
+  // FADE OUT YOUR OVERLAYING DIV
+  $('#overlay').fadeOut(500);
+});
+
 function preload() {
   img = loadImage("about_page.png");
 }
