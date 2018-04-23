@@ -27,7 +27,7 @@ $(window).on('load', function () {
 });
 
 function preload() {
-  img = loadImage("about_page.png");
+  img = loadImage("/assests/about_page.png");
 }
 
 function setup() {

@@ -117,7 +117,7 @@ Main components
   transform: translateX(-50%) translateY(-50%);
   color: white;
   font-weight: 300;
-  font-family: "Existence";
+  font-family: "Avenir";
   text-align: center;
   /* text-transform: uppercase; */
   font-size: 20px;
@@ -140,7 +140,7 @@ Main components
   text-align: center;
   /* max-width: 400px; */
   font-size: 18px;
-  font-family: "Existence";
+  font-family: "Avenir";
 }
 
 .cd-section #category {
@@ -157,7 +157,7 @@ Main components
   text-align: center;
   max-width: 400px;
   font-size: 15px;
-  font-family: "Existence";
+  font-family: "Avenir";
 }
 
 .cd-section #jobD {
@@ -173,7 +173,7 @@ Main components
   transform: translateX(-50%) translateY(-50%);
   max-width: 400px;
   text-align: center;
-  font-family: "Existence";
+  font-family: "Avenir";
   font-size: 15px;
 }
 
@@ -221,7 +221,7 @@ Main components
   /* width: 90%;
   /* max-width: 768px; */
   /* text-align: center; */
-  /* font-family: "Existence";  */
+  /* font-family: "Avenir";  */
 }
 
 @media only screen and (min-width: 768px) {
@@ -340,7 +340,7 @@ Main components
   margin-right: 1px;
   padding: .4em .5em;
   color: #ffffff;
-  font-family: "Existence";
+  font-family: "Avenir";
   font-size: 20px;
   font-size: 0.875rem;
   -webkit-transition: -webkit-transform 0.2s, opacity 0.2s;

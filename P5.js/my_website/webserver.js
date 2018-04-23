@@ -9,47 +9,51 @@ let credentials = {
 let express = require('express');
 let app = express();
 
-app.use(express.static('html'));
-app.use(express.static('js/libs'));
-app.use(express.static('js/my_scripts'));
-app.use(express.static('js/libs/p5js'));
-app.use(express.static('js/libs/brf_asmjs'));
-app.use(express.static('js/libs/brf_wasm'));
-app.use(express.static('js/libs/createjs'));
-app.use(express.static('js/libs/highlight'));
-app.use(express.static('js/libs/quicksettings'));
-app.use(express.static('js/libs/threejs'));
-app.use(express.static('js/libs/matterjs'));
-app.use(express.static('sound'));
-app.use(express.static('assests'));
-app.use(express.static('css'));
+// express.static(root, [options]);
+
+// app.use(express.static('html'));
+// app.use(express.static('js/libs'));
+// app.use(express.static('js/my_scripts'));
+// app.use(express.static('js/libs/p5js'));
+// app.use(express.static('js/libs/brf_asmjs'));
+// app.use(express.static('js/libs/brf_wasm'));
+// app.use(express.static('js/libs/createjs'));
+// app.use(express.static('js/libs/highlight'));
+// app.use(express.static('js/libs/quicksettings'));
+// app.use(express.static('js/libs/threejs'));
+// app.use(express.static('js/libs/matterjs'));
+// app.use(express.static('sound'));
+// app.use(express.static('assests'));
+// app.use(express.static('css'));
+
+app.use(express.static('public'));
 
 app.get('/forest', function (req, res) {
-  res.sendfile(__dirname + '/html/forest.html');
+  res.sendfile(__dirname + '/public/html/forest.html');
 });
 
 app.get('/about', function (req, res) {
-  res.sendfile(__dirname + '/html/about.html');
+  res.sendfile(__dirname + '/public/html/about.html');
 });
 
 app.get('/face', function (req, res) {
-  res.sendfile(__dirname + '/html/face.html');
+  res.sendfile(__dirname + '/public/html/face.html');
 });
 
 app.get('/sun', function (req, res) {
-  res.sendfile(__dirname + '/html/sun.html');
+  res.sendfile(__dirname + '/public/html/sun.html');
 });
 
 app.get('/matrix', function (req, res) {
-  res.sendfile(__dirname + '/html/matrix.html');
+  res.sendfile(__dirname + '/public/html/matrix.html');
 });
 
 app.get('/ripple', function (req, res) {
-  res.sendfile(__dirname + '/html/ripple.html');
+  res.sendfile(__dirname + '/public/html/ripple.html');
 });
 
 app.get('/cloth', function (req, res) {
-  res.sendfile(__dirname + '/html/cloth.html');
+  res.sendfile(__dirname + '/public/html/cloth.html');
 });
 let httpsServer = https.createServer(credentials, app);
 

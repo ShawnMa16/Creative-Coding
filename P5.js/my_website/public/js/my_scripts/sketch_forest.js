@@ -13,8 +13,8 @@ $(window).on('load', function () {
 function preload() {
   soundFormats('mp3');
   //load sound file
-  waterSound = loadSound("water.mp3");
-  birdSound = loadSound("bird.mp3");
+  waterSound = loadSound("/sound/water.mp3");
+  birdSound = loadSound("/sound/bird.mp3");
 }
 
 //kinect
@@ -158,7 +158,7 @@ function draw() {
     }
 
     // waterSound.play();
-    cursor("hand.png");
+    cursor("/assests/hand.png");
 
     ellipseMode(CENTER);
     noStroke();
