@@ -39,11 +39,17 @@ let micInput;
 let count;
 
 setTimeout(() => {
-    $('#infor').fadeIn(500); 
-}, 10000);
+    $('#showInfo').fadeIn(500); 
+}, 3000);
+setTimeout(() => {
+    $('#showInfo').fadeOut(500); 
+}, 8000);
 
 setTimeout(() => {
-    $('#infor').fadeOut(500); 
+    $('#info').fadeIn(500); 
+}, 10000);
+setTimeout(() => {
+    $('#info').fadeOut(500); 
 }, 15000);
 
 function setup() {
@@ -145,7 +151,7 @@ function draw() {
     } else {
         force.mult(0.99);
         micForce = createVector((Matter.Common.random(0, 2e-4)), 0);
-        micForce.mult(mic.getLevel() * 100);
+        micForce.mult(mic.getLevel() * 20);
         applyWindForce(from, micForce);
         console.log(micForce);
     }
