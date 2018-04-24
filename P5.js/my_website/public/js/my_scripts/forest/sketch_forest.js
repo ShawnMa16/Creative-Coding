@@ -114,7 +114,7 @@ function setup() {
   //background for the water
   // pg = createGraphics(900, 260);
   pg = createGraphics(windowWidth, (260 / 900) * windowHeight);
-  pg.pixelDensity(1);
+  pg.pixelDensity();
   pg.background(0);
 
   //start point for the tree
@@ -255,8 +255,6 @@ function draw() {
     //------------------------------ finish -------------------------------------
 
     // console.log(myTree.twig.length);
-    drawWater();
-
     //control the bird fly;
     if (birdIsScared) {
       flock.run();
@@ -269,6 +267,7 @@ function draw() {
     // pop();
 
     // image(mouseImg, mouseX, mouseY);
+    drawWater();
 
   } else {
     waterSound.pause();
@@ -381,7 +380,6 @@ function mouseMoved() {
 //----------------------- drawing out the water -------------------------------
 function drawWater() {
 
-
   push();
   fill(0);
   stroke(255);
@@ -430,6 +428,7 @@ function drawWater() {
 
   //drawing the lines(water)
   for (var w = 0; w < 7; w++) {
+    push();
     pg.beginShape();
     for (var x = 0; x <= width + 500; x = x + 100) {
       pg.stroke(255, a);
@@ -452,7 +451,7 @@ function drawWater() {
       }
     }
     pg.endShape();
-
+    pop();
     // console.log(tempAcc.y);
     // incr1 += .0004;
     var ySpeed = map(abs(tempAcc.y), 0, 1.0, 0.0004, 0.003);
@@ -501,3 +500,8 @@ function getScroll() {
     return [sx, sy];
   }
 }
+
+// function windowResized() {
+//   // resizeCanvas(windowWidth, windowHeight);
+//   // myCanvas.position((windowWidth - width) / 2, (windowHeight - height) / 2);
+// }

@@ -23,7 +23,7 @@ function init() {
 
     // animation for the whole group
     let groupToMove = SVG.get('groupToMove');
-    console.log(groupToMove);
+    // console.log(groupToMove);
     groupToMove.animate(500, '>').move(0, window.innerHeight * 0.45).animate(100,'>').dmove(0, -5);
     // polygonArray[6].toMove(6);
     // console.log(polygonArray[0]);
