@@ -33,9 +33,18 @@ let lines = [];
 // setting the wind force
 let from;
 let force;
+let micForce;
 let micInput;
 // count fot the first line
 let count;
+
+setTimeout(() => {
+    $('#infor').fadeIn(500); 
+}, 10000);
+
+setTimeout(() => {
+    $('#infor').fadeOut(500); 
+}, 15000);
 
 function setup() {
 
@@ -135,10 +144,18 @@ function draw() {
         force = createVector((Matter.Common.random(0, 2e-4)), 0);
     } else {
         force.mult(0.99);
+        micForce = createVector((Matter.Common.random(0, 2e-4)), 0);
+        micForce.mult(mic.getLevel() * 100);
+        applyWindForce(from, micForce);
+        console.log(micForce);
     }
     // force = createVector(-random((Matter.Common.random(-2e-4, 0)) / 4, (Matter.Common.random(-2e-4, 0))), 0);
+
+    // starting applyting force after 4s
     setTimeout(() => {
-        applyWindForce(from, force);
+        if (!micInput) {
+            applyWindForce(from, force);
+        }
     }, 3000);
 
     // setTimeout(() => {
@@ -157,6 +174,7 @@ function draw() {
     // fill(255);
     noFill();
 
+    // rendering the lines between each point
     lines.forEach((line, i) => {
         line.render();
     });
@@ -175,8 +193,8 @@ blowAway = (_id) => {
     // if(_id == 20) clearTimeout(blowAway(_id));
 };
 
+// apply force for the cloth
 applyWindForce = (_location, _wind) => {
-    
     clothBodies.forEach((line, i) => {
         line.forEach((point, j) => {
             Body.applyForce(point, _location, _wind);
@@ -184,12 +202,12 @@ applyWindForce = (_location, _wind) => {
     });
 };
 
-// function keyPressed() {
-//     if (keyCode === ENTER) {
-//         micInput = !micInput;
-//         mic = new p5.AudioIn();
-//         // start the Audio Input.
-//         // By default, it does not .connect() (to the computer speakers)
-//         mic.start();
-//     }
-// }
+function keyPressed() {
+    if (keyCode === ENTER) {
+        micInput = true;
+        mic = new p5.AudioIn();
+        // start the Audio Input.
+        // By default, it does not .connect() (to the computer speakers)
+        mic.start();
+    }
+}
