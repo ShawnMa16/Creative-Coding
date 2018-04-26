@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 22.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 800 800" style="enable-background:new 0 0 800 800;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#CCCCCC;}
+	.st1{fill:#F2F2F2;}
+	.st2{font-family:'Avenir-Book';}
+	.st3{font-size:20px;}
+</style>
+<g>
+	<rect x="136" y="237" class="st0" width="150" height="150"/>
+</g>
+<g>
+	<g>
+		<rect x="125" y="225" width="150" height="150"/>
+	</g>
+	<text transform="matrix(1 0 0 1 178.1938 303.5825)" class="st1 st2 st3">cloth</text>
+</g>
+<g>
+	<g>
+		<rect x="525" y="225" width="150" height="150"/>
+	</g>
+	<text transform="matrix(1 0 0 1 574.3242 303.5825)" class="st1 st2 st3">ripple</text>
+</g>
+<g>
+	<g>
+		<rect x="325" y="225" width="150" height="150"/>
+	</g>
+	<text transform="matrix(1 0 0 1 374.874 303.5825)" class="st1 st2 st3">forest</text>
+</g>
+<g>
+	<g>
+		<rect x="125" y="425" width="150" height="150"/>
+	</g>
+	<text transform="matrix(1 0 0 1 145.085 503.5825)" class="st1 st2 st3">matrix</text>
+</g>
+<g>
+	<g>
+		<rect x="325" y="425" width="150" height="150"/>
+	</g>
+	<text transform="matrix(1 0 0 1 381.6938 503.5825)" class="st1 st2 st3">face</text>
+</g>
+</svg>

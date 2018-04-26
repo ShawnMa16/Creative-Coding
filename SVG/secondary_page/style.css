@@ -1,0 +1,45 @@
+html,
+body {
+    height: 100%;
+    margin: 0;
+}
+
+#nav {
+    position: fixed;
+    left: 0%;
+    top: 10%;
+    right: auto;
+    bottom: auto;
+    width: 100%;
+    height: 100%;
+}
+
+.topLayer {
+    pointer-events: auto;
+    cursor: pointer;
+}
+
+.navTitle {
+    pointer-events: none;
+}
+
+#wrapper {
+    width: 97vh;
+    height: 97vh;
+}
+
+.st0 {
+    fill:rgb(204, 204, 204);
+}
+
+.st1 {
+    font-family: 'Avenir-Book';
+}
+
+.st2 {
+    font-size: 20px;
+}
+
+.st3 {
+    fill: rgb(230, 230, 230);
+}
