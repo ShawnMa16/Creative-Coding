@@ -11,9 +11,10 @@ var world;
 
 // setting the ground for bouncing
 let ground;
+let wallLeft, wallRight;
 
 let breaks;
-let breakSize = 45;
+let breakSize = 22.5;
 
 let img;
 let capture;
@@ -34,28 +35,34 @@ function setup() {
         collisionFilter: {
             category: groundCategory
         }
-        // collisionFilter: 100
     }
 
     myCanvas = createCanvas(windowWidth, windowHeight);
-    // capture = createCapture(VIDEO);
-    // capture.size(640, 480);
+    capture = createCapture(VIDEO);
+    capture.size(320, 240);
+    capture.hide();
 
     engine = Engine.create();
     world = engine.world;
 
     Engine.run(engine);
 
-    ground = Bodies.rectangle(width/2, height + 50, 400, 100, options);
-    World.add(world, ground);
+    ground = Bodies.rectangle(width / 2, height + 50, width, 100, options);
+    wallLeft = Bodies.rectangle(0 - 50, height / 2, 100, height, options);
+    wallRight = Bodies.rectangle(width + 50, height / 2, 100, height, options);
+    World.add(world, [ground, wallLeft, wallRight]);
 
     breaks = Array.from({
-        length: 16
+        length: 8
     }, (v, y) => Array.from({
-        length: 12
-    }, (v, x) => new Break(img, x * breakSize + breakSize/2, y * breakSize + breakSize/2, y * 12 + x)));
+        length: 6
+    }, (v, x) => new Break(capture, x * breakSize + breakSize / 2 + 90, y * breakSize + breakSize / 2, y * 6 + x)));
 
     console.log(breaks[0]);
+
+    setTimeout(() => {
+        sleeping = !sleeping;
+    }, 5000);
 }
 
 function draw() {
@@ -65,8 +72,9 @@ function draw() {
     breaks.forEach((line, i) =>
         line.forEach((
             _break, j) => {
-            _break.render();
+            _break.render(capture);
         }));
+
 }
 
 function keyPressed() {

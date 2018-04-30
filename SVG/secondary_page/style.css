@@ -17,6 +17,23 @@ body {
 .topLayer {
     pointer-events: auto;
     cursor: pointer;
+    background-image: url("cloth.gif");
+}
+
+#test {
+    background: url("cloth.gif");
+    left:150px;
+    top:150px;
+}
+
+.topLayer:hover + text.navTitle {
+    display: none;
+}
+
+.giffy{
+    /* position: absolute; */
+    left: 125px;
+    top: 125px;
 }
 
 .navTitle {
