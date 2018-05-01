@@ -42,7 +42,7 @@ function initExample() {
     if (brfv4 === null) {
       brfv4 = {
         locateFile: function () {
-          return "BRFv4_JS_TK190218_v4.0.5_trial.js.mem"
+          return "/js/libs/brf_asmjs/BRFv4_JS_TK190218_v4.0.5_trial.js.mem";
         }
       };
       initializeBRF(brfv4);

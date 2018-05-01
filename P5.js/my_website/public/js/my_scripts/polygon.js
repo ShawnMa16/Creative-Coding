@@ -53,7 +53,7 @@ class Polygon {
             });
         });
         this.pageSVG.on("mouseover", function () {
-            document.getElementById("poly" + _id).style.cursor = "pointer";
+            // document.getElementById("poly" + _id).style.cursor = "pointer";
             // this.animate(150).translate(0, -20);
             // SVG.get("text" + _id).animate(150).translate(0, -20);
             SVG.get("page" + _id).animate(150, '>').dmove(0, -20);
