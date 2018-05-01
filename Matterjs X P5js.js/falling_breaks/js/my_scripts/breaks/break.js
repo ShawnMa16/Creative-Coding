@@ -1,8 +1,8 @@
 class Break {
     constructor(imgSrc, _x, _y, _id) {
         this.options = {
-            frictionAir: 0.1,
-            friction: 0.5,
+            frictionAir: 0.05,
+            friction: 0.2,
             restitution: 0,
             isSleeping: true,
             collisionFilter: {
@@ -48,7 +48,7 @@ class Break {
     }
 
     renewBody() {
-        console.log(this.body);
+        // console.log(this.body);
         // this.body = null;
         setTimeout(() => {
             let newbody = Bodies.rectangle(this.target.x, this.target.y, this.w * 2, this.h * 2, this.options);

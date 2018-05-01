@@ -22,15 +22,15 @@ body {
 
 #test {
     background: url("cloth.gif");
-    left:150px;
-    top:150px;
+    left: 150px;
+    top: 150px;
 }
 
-.topLayer:hover + text.navTitle {
+.topLayer:hover+text.navTitle {
     display: none;
 }
 
-.giffy{
+.giffy {
     /* position: absolute; */
     left: 125px;
     top: 125px;
@@ -46,7 +46,7 @@ body {
 }
 
 .st0 {
-    fill:rgb(204, 204, 204);
+    fill: rgb(204, 204, 204);
 }
 
 .st1 {

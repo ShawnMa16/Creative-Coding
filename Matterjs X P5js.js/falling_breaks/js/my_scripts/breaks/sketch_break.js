@@ -28,11 +28,9 @@ let sleeping = true;
 let staticy = true;
 
 let bodyRebuild;
-let bodyReturn;
+let trigger;
 
-// function preload() {
-//     img = loadImage('http://104.131.113.151:3000/test.png');
-// }
+let count = 0;
 
 rebuildBody = () => {
     console.log("bodies rebuilt!");
@@ -81,17 +79,10 @@ function setup() {
     setTimeout(() => {
         sleeping = !sleeping;
     }, 5000);
-
-    // setTimeout(() => {
-    //     engine.world.gravity.y = 0;
-    // }, 8000);
-
-    // setTimeout(() => {
-    //     returnToOri();
-    // }, 15000);
-
-    setInterval(function () {
+    
+    trigger = setInterval(function () {
         sleeping = false;
+        count++;
     }, 24000);
 
     bodyRebuild = setInterval(function () {
@@ -104,18 +95,18 @@ function setup() {
                 _break.removeBody();
                 _break.renewBody();
             }));
-    }, 18000);
+    }, 20000);
 
-    // setInterval(rebuildBody(), 16000);
-
-    // setTimeout(() => {
-    //     rebuildBody();
-    // }, 16000);
-
-    console.log(breaks[0][0].target);
+    // console.log(breaks[0][0].target);
 }
 
 function draw() {
+
+    if(count == 2){
+        console.log("stop!");
+        clearInterval(trigger);
+        // clearInterval(bodyRebuild);
+    }
 
     // image(img,0,0);
     background(255, 250, 249);
@@ -125,18 +116,6 @@ function draw() {
             _break.render(capture);
         }));
 }
-
-// returnToOri = () => {
-//     console.log("bodies reset!");
-//     sleeping = !sleeping;
-//     // engine.world.gravity.y = 0;
-//     breaks.forEach((line, i) =>
-//         line.forEach((
-//             _break, j) => {
-//             _break.removeBody();
-//         }));
-// };
-
 
 function keyPressed() {
     if (keyCode == ENTER) {

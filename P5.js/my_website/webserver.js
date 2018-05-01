@@ -55,6 +55,11 @@ app.get('/ripple', function (req, res) {
 app.get('/cloth', function (req, res) {
   res.sendfile(__dirname + '/public/html/cloth.html');
 });
+
+app.get('/breaks', function (req, res) {
+  res.sendfile(__dirname + '/public/html/breaks.html');
+});
+
 let httpsServer = https.createServer(credentials, app);
 
 // Default HTTPS Port
