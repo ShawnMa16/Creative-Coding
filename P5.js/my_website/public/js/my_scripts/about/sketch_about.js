@@ -40,8 +40,8 @@ function setup() {
   textLine4 = createP("Augmented Reality and Machine Learning.");
   notification = createP("I built my own website.");
 
-  portfolio = createA('https://xiaoma.space/portfolio.pdf', 'Portfolio', '_blank');
-  resume = createA('https://xiaoma.space/resume.pdf', 'Resume', '_blank');
+  portfolio = createA('https://xiaoma.space/assests/portfolio.pdf', 'Portfolio', '_blank');
+  resume = createA('https://xiaoma.space/assests/resume.pdf', 'Resume', '_blank');
   emailAddress = createA("mailto:emailme.mx@gmail.com", 'Email');
 
   img.loadPixels();

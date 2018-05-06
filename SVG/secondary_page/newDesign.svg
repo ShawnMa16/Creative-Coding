@@ -24,6 +24,10 @@
 	<text transform="matrix(1 0 0 1 574.3242 303.5825)" class="st1 st2 st3">ripple</text>
 </g>
 <g>
+	<rect x="525" y="425" width="150" height="150"/>
+</g>
+<text transform="matrix(1 0 0 1 578.5303 503.5829)" class="st1 st2 st3">brick</text>
+<g>
 	<g>
 		<rect x="325" y="225" width="150" height="150"/>
 	</g>

@@ -1,5 +1,5 @@
 let polygonArray = [];
-let numOfPolygon = 7;
+let numOfPolygon = 5;
 let angle = Math.PI / 9.0;
 let offSetX = 35;
 

@@ -1,0 +1,80 @@
+html,
+body {
+    height: 100%;
+    margin: 0;
+}
+
+#nav {
+    position: fixed;
+    left: 0%;
+    top: 10%;
+    right: auto;
+    bottom: auto;
+    width: 100%;
+    height: 100%;
+}
+
+.topLayer {
+    pointer-events: auto;
+    cursor: pointer;
+}
+
+#cloth :hover {
+    transition: fill .4s ease-in-out;
+    fill: url(#clothGif);
+}
+
+#forest :hover {
+    transition: fill .4s ease-in-out;
+    fill: url(#forestGif);
+}
+
+#ripple :hover {
+    transition: fill .4s ease-in-out;
+    fill: url(#rippleGif);
+}
+
+#matrix :hover {
+    transition: fill .4s ease-in-out;
+    fill: url(#matrixGif);
+}
+
+#face :hover {
+    transition: fill .4s ease-in-out;
+    fill: url(#faceGif);
+}
+
+#brick :hover {
+    transition: fill .4s ease-in-out;
+    fill: url(#breakGif);
+}
+
+.topLayer:hover+text.navTitle {
+    display: none;
+    /* fill: rgb(150, 150, 150 ); */
+}
+
+.navTitle {
+    pointer-events: none;
+}
+
+#wrapper {
+    width: 97vh;
+    height: 97vh;
+}
+
+.st0 {
+    fill: rgb(204, 204, 204);
+}
+
+.st1 {
+    font-family: 'Avenir-Book';
+}
+
+.st2 {
+    font-size: 20px;
+}
+
+.st3 {
+    fill: rgb(230, 230, 230);
+}

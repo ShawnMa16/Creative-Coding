@@ -14,15 +14,15 @@ let ground;
 let wallLeft, wallRight;
 let ceiling;
 
-let breaks;
-let breakSize = 22.5;
+let bricks;
+let brickSize = 22.5;
 
 let img;
 let capture;
 let myCanvas;
 
 let groundCategory = 0x0002,
-    breakCategory = 0x0004;
+    brickCategory = 0x0004;
 
 let sleeping = true;
 let staticy = true;
@@ -35,12 +35,12 @@ let count = 0;
 rebuildBody = () => {
     console.log("bodies rebuilt!");
     sleeping = true;
-    breaks.forEach((line, i) =>
+    bricks.forEach((line, i) =>
         line.forEach((
-            _break, j) => {
-            _break.goToInitPos();
-            _break.removeBody();
-            _break.renewBody();
+            _brick, j) => {
+            _brick.goToInitPos();
+            _brick.removeBody();
+            _brick.renewBody();
         }));
 };
 
@@ -68,13 +68,13 @@ function setup() {
     ceiling = Bodies.rectangle(width / 2, 0 - 100, width, 200, options);
     World.add(world, [ground, wallLeft, wallRight, ceiling]);
 
-    breaks = Array.from({
+    bricks = Array.from({
         length: 8
     }, (v, y) => Array.from({
         length: 6
-    }, (v, x) => new Break(capture, x * breakSize + breakSize / 2 + 90, y * breakSize + breakSize / 2, y * 6 + x)));
+    }, (v, x) => new Brick(capture, x * brickSize + brickSize / 2 + 90, y * brickSize + brickSize / 2, y * 6 + x)));
 
-    console.log(breaks[0]);
+    console.log(bricks[0]);
 
     setTimeout(() => {
         sleeping = !sleeping;
@@ -88,16 +88,16 @@ function setup() {
     bodyRebuild = setInterval(function () {
         console.log("bodies rebuilt!");
         sleeping = true;
-        breaks.forEach((line, i) =>
+        bricks.forEach((line, i) =>
             line.forEach((
-                _break, j) => {
-                _break.goToInitPos();
-                _break.removeBody();
-                _break.renewBody();
+                _brick, j) => {
+                _brick.goToInitPos();
+                _brick.removeBody();
+                _brick.renewBody();
             }));
     }, 20000);
 
-    // console.log(breaks[0][0].target);
+    // console.log(bricks[0][0].target);
 }
 
 function draw() {
@@ -110,10 +110,10 @@ function draw() {
 
     // image(img,0,0);
     background(255, 250, 249);
-    breaks.forEach((line, i) =>
+    bricks.forEach((line, i) =>
         line.forEach((
-            _break, j) => {
-            _break.render(capture);
+            _brick, j) => {
+            _brick.render(capture);
         }));
 }
 

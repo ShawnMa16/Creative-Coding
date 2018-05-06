@@ -39,6 +39,16 @@ body {
     fill: url(#matrixGif);
 }
 
+#face :hover {
+    transition: fill .4s ease-in-out;
+    fill: url(#faceGif);
+}
+
+#brick :hover {
+    transition: fill .4s ease-in-out;
+    fill: url(#breakGif);
+}
+
 .topLayer:hover+text.navTitle {
     display: none;
     /* fill: rgb(150, 150, 150 ); */

@@ -28,7 +28,7 @@ let app = express();
 
 app.use(express.static('public'));
 
-app.get('/forest', function (req, res) {
+app.get('/coding/forest', function (req, res) {
   res.sendfile(__dirname + '/public/html/forest.html');
 });
 
@@ -36,7 +36,7 @@ app.get('/about', function (req, res) {
   res.sendfile(__dirname + '/public/html/about.html');
 });
 
-app.get('/face', function (req, res) {
+app.get('/coding/face', function (req, res) {
   res.sendfile(__dirname + '/public/html/face.html');
 });
 
@@ -44,20 +44,24 @@ app.get('/sun', function (req, res) {
   res.sendfile(__dirname + '/public/html/sun.html');
 });
 
-app.get('/matrix', function (req, res) {
+app.get('/coding/matrix', function (req, res) {
   res.sendfile(__dirname + '/public/html/matrix.html');
 });
 
-app.get('/ripple', function (req, res) {
+app.get('/coding/ripple', function (req, res) {
   res.sendfile(__dirname + '/public/html/ripple.html');
 });
 
-app.get('/cloth', function (req, res) {
+app.get('/coding/cloth', function (req, res) {
   res.sendfile(__dirname + '/public/html/cloth.html');
 });
 
-app.get('/breaks', function (req, res) {
-  res.sendfile(__dirname + '/public/html/breaks.html');
+app.get('/coding/brick', function (req, res) {
+  res.sendfile(__dirname + '/public/html/brick.html');
+});
+
+app.get('/coding', function (req, res) {
+  res.sendfile(__dirname + '/public/html/creative_coding.html');
 });
 
 let httpsServer = https.createServer(credentials, app);

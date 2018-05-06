@@ -1,4 +1,4 @@
-class Break {
+class Brick {
     constructor(imgSrc, _x, _y, _id) {
         this.options = {
             frictionAir: 0.05,
@@ -6,7 +6,7 @@ class Break {
             restitution: 0,
             isSleeping: true,
             collisionFilter: {
-                category: breakCategory,
+                category: brickCategory,
                 // mask: groundCategory
             },
             render: {
@@ -19,8 +19,8 @@ class Break {
         this.randomX = random(-5, 5);
         this.randomY = random(-5, 5);
 
-        this.w = breakSize + random(15, 25);
-        this.h = breakSize + random(15, 25);
+        this.w = brickSize + random(15, 25);
+        this.h = brickSize + random(15, 25);
         this.x = _x;
         this.y = _y;
 

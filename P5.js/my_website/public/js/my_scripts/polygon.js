@@ -71,7 +71,7 @@ class Polygon {
     }
 
     toDestination(_id) {
-        let direction = 3 - _id;
-        SVG.get("page" + _id).animate(500, '>', 800).dmove(direction * 25, -direction * 25 * Math.tan(angle));
+        let direction = 2 - _id;
+        SVG.get("page" + _id).animate(600, '>', 800).dmove(direction * 25, -direction * 25 * Math.tan(angle));
     }
 }

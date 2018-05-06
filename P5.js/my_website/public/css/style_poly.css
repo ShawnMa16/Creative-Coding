@@ -49,8 +49,8 @@ body {
     position: absolute;
     -webkit-transform-origin: center;
     -webkit-transform-style: preserve-3d;
-    -webkit-transform: rotateY(50deg) rotateZ(14deg) rotateX(10deg) translateX(-44px) translateY(-41px);
-    transform: rotateY(50deg) rotateZ(14deg) rotateX(10deg) translateX(-44px) translateY(-41px);
+    -webkit-transform: rotateY(50deg) rotateZ(14deg) rotateX(10deg) translateX(-44px) translateY(-0px);
+    transform: rotateY(50deg) rotateZ(14deg) rotateX(10deg) translateX(-44px) translateY(-0px);
     pointer-events: none;
 }
 
@@ -60,8 +60,8 @@ body {
     position: absolute;
     -webkit-transform-origin: center;
     -webkit-transform-style: preserve-3d;
-    -webkit-transform: rotateY(50deg) rotateZ(14deg) rotateX(10deg) translateX(-30px) translateY(-45px);
-    transform: rotateY(50deg) rotateZ(14deg) rotateX(10deg) translateX(-30px) translateY(-45px);
+    -webkit-transform: rotateY(50deg) rotateZ(14deg) rotateX(10deg) translateX(-38px) translateY(-45px);
+    transform: rotateY(50deg) rotateZ(14deg) rotateX(10deg) translateX(-38px) translateY(-45px);
     pointer-events: none;
 }
 
@@ -71,8 +71,8 @@ body {
     position: absolute;
     -webkit-transform-origin: center;
     -webkit-transform-style: preserve-3d;
-    -webkit-transform: rotateY(50deg) rotateZ(14deg) rotateX(10deg) translateX(-31px) translateY(-50px);
-    transform: rotateY(50deg) rotateZ(14deg) rotateX(10deg) translateX(-31px) translateY(-50px);
+    -webkit-transform: rotateY(50deg) rotateZ(14deg) rotateX(10deg) translateX(-32px) translateY(-50px);
+    transform: rotateY(50deg) rotateZ(14deg) rotateX(10deg) translateX(-32px) translateY(-50px);
     pointer-events: none;
 }
 
