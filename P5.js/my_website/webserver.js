@@ -26,7 +26,7 @@ let app = express();
 // app.use(express.static('assests'));
 // app.use(express.static('css'));
 
-app.use(express.static('public'));
+app.use(express.static('public'))
 
 app.get('/coding/forest', function (req, res) {
   res.sendfile(__dirname + '/public/html/forest.html');
@@ -64,9 +64,17 @@ app.get('/coding', function (req, res) {
   res.sendfile(__dirname + '/public/html/creative_coding.html');
 });
 
+app.get('/a2z/week3', function (req, res) {
+  res.sendfile(__dirname + '/public/a2z/week3/index.html');
+})
+
+app.get('/ml', function (req, res) {
+  res.sendfile(__dirname + '/public/ml/index.html');
+})
+
 let httpsServer = https.createServer(credentials, app);
 
 // Default HTTPS Port
-httpsServer.listen(220);
+httpsServer.listen(443);
 
 // module.exports = app;
